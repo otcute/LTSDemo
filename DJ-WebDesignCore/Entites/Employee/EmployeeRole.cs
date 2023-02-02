@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DJ_WebDesignCore.Entites.Employee
 {
-    internal class EmployeeRole
+    public class EmployeeRole
     {
         public int EmployeeRoleId { get; set; }
         public string EmployeeRoleCode { get; set; }

@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace DJ_WebDesignCore.Entites.Employee
 {
-    internal class EmployeeLA
+    public class EmployeeLA
     {
         public int EmployeeLAId { get; set; }
         public Address? AddressId { get; set; }
+        public EmployeeRole? EmployeeRoleId { get; set; }
         public int? GenderId { get; set; }
         public string? NumberPhone { get; set; }
         public string? FacebookUrl { get; set; }

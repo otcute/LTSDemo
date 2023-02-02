@@ -21,4 +21,10 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Entites\Courses\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entites\Courses\" />
+  </ItemGroup>
 </Project>

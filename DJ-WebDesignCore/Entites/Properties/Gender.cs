@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 
 namespace DJ_WebDesignCore.Entites.Properties
 {
-    internal class Gender
+    public class Gender
     {
         public int GenderId { get; set; }
         public string GenderCode { get; set; }
-
         public string GenderName { get; set;}
     }
 }

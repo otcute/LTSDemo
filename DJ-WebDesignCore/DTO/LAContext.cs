@@ -11,10 +11,10 @@ using System.Threading.Tasks;
 
 namespace DJ_WebDesignCore.DTO
 {
-    internal class LAContext : DbContext
+    public class LAContext : DbContext
     {
         // Employee
-        public DbSet<Employee> employees { get; set; }
+        public DbSet<EmployeeLA> employees { get; set; }
         public DbSet<EmployeeRole> employeeRoles { get; set; }
 
 

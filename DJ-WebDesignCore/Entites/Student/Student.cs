@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DJ_WebDesignCore.Entites.Student
 {
-    internal class Student
+    public class Student
     {
         public int StudentId { get; set; }
         public string? StudentName { get; set; }
