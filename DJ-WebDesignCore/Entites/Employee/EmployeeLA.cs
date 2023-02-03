@@ -25,5 +25,8 @@ namespace DJ_WebDesignCore.Entites.Employee
         public string? SkyUrl { get; set; }
         public string? EmployeeLAName { get; set; }
         public DateTime? EmployeeLABirthDay { get; set; }
+        public int? EmployeeStatusId { get; set; }
+        [ForeignKey("EmployeeStatusId")]
+        public EmployeeStatus? EmployeeStatus { get; set; }
     }
 }

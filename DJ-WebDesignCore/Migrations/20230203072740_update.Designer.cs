@@ -4,6 +4,7 @@ using DJ_WebDesignCore.DTO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DJWebDesignCore.Migrations
 {
     [DbContext(typeof(LAContext))]
-    partial class LAContextModelSnapshot : ModelSnapshot
+    [Migration("20230203072740_update")]
+    partial class update
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -163,9 +166,6 @@ namespace DJWebDesignCore.Migrations
                     b.Property<int?>("EmployeeRoleId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("EmployeeStatusId")
-                        .HasColumnType("int");
-
                     b.Property<string>("FacebookUrl")
                         .HasColumnType("nvarchar(max)");
 
@@ -183,8 +183,6 @@ namespace DJWebDesignCore.Migrations
                     b.HasIndex("AddressId");
 
                     b.HasIndex("EmployeeRoleId");
-
-                    b.HasIndex("EmployeeStatusId");
 
                     b.ToTable("employeeLA");
                 });
@@ -366,9 +364,6 @@ namespace DJWebDesignCore.Migrations
                     b.Property<string>("StudentLAName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("StudentStatusId")
-                        .HasColumnType("int");
-
                     b.HasKey("StudentLAId");
 
                     b.HasIndex("AddressId");
@@ -376,8 +371,6 @@ namespace DJWebDesignCore.Migrations
                     b.HasIndex("GenderId");
 
                     b.HasIndex("SaleId");
-
-                    b.HasIndex("StudentStatusId");
 
                     b.ToTable("students");
                 });
@@ -441,15 +434,9 @@ namespace DJWebDesignCore.Migrations
                         .WithMany()
                         .HasForeignKey("EmployeeRoleId");
 
-                    b.HasOne("DJ_WebDesignCore.Entites.Properties.EmployeeStatus", "EmployeeStatus")
-                        .WithMany()
-                        .HasForeignKey("EmployeeStatusId");
-
                     b.Navigation("Address");
 
                     b.Navigation("EmployeeRole");
-
-                    b.Navigation("EmployeeStatus");
 
                     b.Navigation("Gender");
                 });
@@ -483,17 +470,11 @@ namespace DJWebDesignCore.Migrations
                         .WithMany()
                         .HasForeignKey("SaleId");
 
-                    b.HasOne("DJ_WebDesignCore.Entites.Properties.StudentStatus", "StudentStatus")
-                        .WithMany()
-                        .HasForeignKey("StudentStatusId");
-
                     b.Navigation("Address");
 
                     b.Navigation("Gender");
 
                     b.Navigation("Sale");
-
-                    b.Navigation("StudentStatus");
                 });
 #pragma warning restore 612, 618
         }

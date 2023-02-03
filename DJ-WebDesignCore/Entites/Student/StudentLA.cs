@@ -23,5 +23,8 @@ namespace DJ_WebDesignCore.Entites.Student
         [ForeignKey("GenderId")]
         public Gender? Gender { get; set; }
         public int? GenderId { get; set; }
+        public int? StudentStatusId { get; set; }
+        [ForeignKey("StudentStatusId")]
+        public StudentStatus? StudentStatus { get; set; }
     }
 }
