@@ -24,14 +24,15 @@ namespace DJ_WebDesignCore.DTO
 
         public DbSet<Gender> genders { get; set; }
         // Student
-        public DbSet<Student> students { get; set; }
+        public DbSet<StudentLA> students { get; set; }
         public DbSet<StudentCourse> studentCourses { get; set; }
 
         //Course
         public DbSet<CourseLA> courses { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(Setting.connectServerUrl());
+            //optionsBuilder.UseSqlServer(Setting.connectServerUrl());
+            optionsBuilder.UseSqlServer(Setting.connectServerUrlMacOS());
         }
     }
 }

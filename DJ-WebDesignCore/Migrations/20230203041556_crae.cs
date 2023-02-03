@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace DJWebDesignCore.Migrations
 {
     /// <inheritdoc />
-    public partial class create : Migration
+    public partial class crae : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -105,46 +105,20 @@ namespace DJWebDesignCore.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "studentCourses",
-                columns: table => new
-                {
-                    StudentCourseId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    EmployeeId = table.Column<int>(type: "int", nullable: true),
-                    CourseLAId = table.Column<int>(type: "int", nullable: true),
-                    OpenCourse = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    CloseCourse = table.Column<DateTime>(type: "datetime2", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_studentCourses", x => x.StudentCourseId);
-                    table.ForeignKey(
-                        name: "FK_studentCourses_courses_CourseLAId",
-                        column: x => x.CourseLAId,
-                        principalTable: "courses",
-                        principalColumn: "CourseLAId");
-                    table.ForeignKey(
-                        name: "FK_studentCourses_employeeLA_EmployeeId",
-                        column: x => x.EmployeeId,
-                        principalTable: "employeeLA",
-                        principalColumn: "EmployeeLAId");
-                });
-
-            migrationBuilder.CreateTable(
                 name: "students",
                 columns: table => new
                 {
-                    StudentId = table.Column<int>(type: "int", nullable: false)
+                    StudentLAId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    StudentName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    StudentLAName = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AddressId = table.Column<int>(type: "int", nullable: true),
-                    StudentBirthDay = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    StudentLABirthDay = table.Column<DateTime>(type: "datetime2", nullable: true),
                     SaleId = table.Column<int>(type: "int", nullable: true),
                     GenderId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_students", x => x.StudentId);
+                    table.PrimaryKey("PK_students", x => x.StudentLAId);
                     table.ForeignKey(
                         name: "FK_students_address_AddressId",
                         column: x => x.AddressId,
@@ -160,6 +134,32 @@ namespace DJWebDesignCore.Migrations
                         column: x => x.GenderId,
                         principalTable: "genders",
                         principalColumn: "GenderId");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "studentCourses",
+                columns: table => new
+                {
+                    StudentCourseId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    StudentLAId = table.Column<int>(type: "int", nullable: true),
+                    CourseLAId = table.Column<int>(type: "int", nullable: true),
+                    OpenCourse = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    CloseCourse = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_studentCourses", x => x.StudentCourseId);
+                    table.ForeignKey(
+                        name: "FK_studentCourses_courses_CourseLAId",
+                        column: x => x.CourseLAId,
+                        principalTable: "courses",
+                        principalColumn: "CourseLAId");
+                    table.ForeignKey(
+                        name: "FK_studentCourses_students_StudentLAId",
+                        column: x => x.StudentLAId,
+                        principalTable: "students",
+                        principalColumn: "StudentLAId");
                 });
 
             migrationBuilder.CreateIndex(
@@ -178,9 +178,9 @@ namespace DJWebDesignCore.Migrations
                 column: "CourseLAId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_studentCourses_EmployeeId",
+                name: "IX_studentCourses_StudentLAId",
                 table: "studentCourses",
-                column: "EmployeeId");
+                column: "StudentLAId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_students_AddressId",
@@ -205,10 +205,10 @@ namespace DJWebDesignCore.Migrations
                 name: "studentCourses");
 
             migrationBuilder.DropTable(
-                name: "students");
+                name: "courses");
 
             migrationBuilder.DropTable(
-                name: "courses");
+                name: "students");
 
             migrationBuilder.DropTable(
                 name: "employeeLA");

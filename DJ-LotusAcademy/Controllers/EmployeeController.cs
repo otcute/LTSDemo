@@ -11,7 +11,7 @@ namespace DJ_LotusAcademy.Controllers
         private LAContext context =new LAContext();
        
         [HttpGet("get")]
-        public ActionResult<Student> getAll()
+        public ActionResult<StudentLA> getAll()
         {
             return Ok(context.students.ToList());
         }

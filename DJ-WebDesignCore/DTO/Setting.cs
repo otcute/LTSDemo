@@ -14,7 +14,7 @@ namespace DJ_WebDesignCore.DTO
         }
         public static string connectServerUrlMacOS()
         {
-            return "Data Source=localhost;Initial Catalog=laDatabase;Integrated Security=True;encrypt=true;trustservercertificate=true;";
+            return "Data Source=localhost;Initial Catalog=laDatabase;User ID= sa;Password = Mamama99!;encrypt=true;trustservercertificate=true;";
         }
     }
 }

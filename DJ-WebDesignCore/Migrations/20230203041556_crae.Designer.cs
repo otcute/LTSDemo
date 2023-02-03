@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DJWebDesignCore.Migrations
 {
     [DbContext(typeof(LAContext))]
-    [Migration("20230202083931_create")]
-    partial class create
+    [Migration("20230203041556_crae")]
+    partial class crae
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -123,17 +123,17 @@ namespace DJWebDesignCore.Migrations
                     b.Property<int?>("CourseLAId")
                         .HasColumnType("int");
 
-                    b.Property<int?>("EmployeeId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime?>("OpenCourse")
                         .HasColumnType("datetime2");
+
+                    b.Property<int?>("StudentLAId")
+                        .HasColumnType("int");
 
                     b.HasKey("StudentCourseId");
 
                     b.HasIndex("CourseLAId");
 
-                    b.HasIndex("EmployeeId");
+                    b.HasIndex("StudentLAId");
 
                     b.ToTable("studentCourses");
                 });
@@ -181,13 +181,13 @@ namespace DJWebDesignCore.Migrations
                     b.ToTable("genders");
                 });
 
-            modelBuilder.Entity("DJ_WebDesignCore.Entites.Student.Student", b =>
+            modelBuilder.Entity("DJ_WebDesignCore.Entites.Student.StudentLA", b =>
                 {
-                    b.Property<int>("StudentId")
+                    b.Property<int>("StudentLAId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StudentId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StudentLAId"));
 
                     b.Property<int?>("AddressId")
                         .HasColumnType("int");
@@ -198,13 +198,13 @@ namespace DJWebDesignCore.Migrations
                     b.Property<int?>("SaleId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("StudentBirthDay")
+                    b.Property<DateTime?>("StudentLABirthDay")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("StudentName")
+                    b.Property<string>("StudentLAName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("StudentId");
+                    b.HasKey("StudentLAId");
 
                     b.HasIndex("AddressId");
 
@@ -242,16 +242,16 @@ namespace DJWebDesignCore.Migrations
                         .WithMany()
                         .HasForeignKey("CourseLAId");
 
-                    b.HasOne("DJ_WebDesignCore.Entites.Employee.EmployeeLA", "Employee")
+                    b.HasOne("DJ_WebDesignCore.Entites.Student.StudentLA", "StudentLA")
                         .WithMany()
-                        .HasForeignKey("EmployeeId");
+                        .HasForeignKey("StudentLAId");
 
                     b.Navigation("CourseLA");
 
-                    b.Navigation("Employee");
+                    b.Navigation("StudentLA");
                 });
 
-            modelBuilder.Entity("DJ_WebDesignCore.Entites.Student.Student", b =>
+            modelBuilder.Entity("DJ_WebDesignCore.Entites.Student.StudentLA", b =>
                 {
                     b.HasOne("DJ_WebDesignCore.Entites.Properties.Address", "Address")
                         .WithMany()
