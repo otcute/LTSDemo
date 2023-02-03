@@ -9,14 +9,14 @@ using System.Threading.Tasks;
 
 namespace DJ_WebDesignCore.Entites.Student
 {
-    public class Student
+    public class StudentLA
     {
-        public int StudentId { get; set; }
-        public string? StudentName { get; set; }
+        public int StudentLAId { get; set; }
+        public string? StudentLAName { get; set; }
         [ForeignKey("AddressId")]
         public Address? Address { get; set; }
         public int? AddressId { get; set; }
-        public DateTime? StudentBirthDay { get; set; }
+        public DateTime? StudentLABirthDay { get; set; }
         [ForeignKey("SaleId")]
         public EmployeeLA? Sale { get; set; }
         public int? SaleId { get; set; }

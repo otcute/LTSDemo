@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace DJ_WebDesignCore.Entites.Properties
 {
-    internal class CourseStatus
+    public class CourseStatus
     {
+        public int CourseStatusId { get; set; }
+        public string CourseStatusCode { get; set; }
+        public string CourseStatusName { get; set; }
     }
 }

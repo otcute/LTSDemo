@@ -1,6 +1,9 @@
-﻿namespace DJ_LotusAcademy.Services.ServicesImp
+﻿using DJ_LotusAcademy.Services.IServices;
+using System.Runtime.InteropServices;
+
+namespace DJ_LotusAcademy.Services.ServicesImp
 {
-    public class StudentServices
+    public class StudentServices : IStudentServices
     {
     }
 }

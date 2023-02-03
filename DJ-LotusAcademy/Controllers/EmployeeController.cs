@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace DJ_LotusAcademy.Controllers
 {
     [ApiController]
-    [Route("api/la/")]
+    [Route("api/employee/")]
     public class EmployeeController : ControllerBase
     {
         private LAContext context =new LAContext();
