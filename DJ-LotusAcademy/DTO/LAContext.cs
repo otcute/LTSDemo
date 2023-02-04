@@ -5,18 +5,13 @@ using DJ_WebDesignCore.Entites.Employee;
 using DJ_WebDesignCore.Entites.Properties;
 using DJ_WebDesignCore.Entites.Student;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DJ_WebDesignCore.DTO
 {
-    public class LAContext : DbContext
+    public class LAContext 
     {
         // Employee
-        public DbSet<EmployeeLA> employeeLA { get; set; }
+        public DbSet<EmployeeLA> employeeLA { get; }
         public DbSet<EmployeeRole> employeeRoles { get; set; }
         // Properties
         public DbSet<Address> address { get; set; }
@@ -34,10 +29,10 @@ namespace DJ_WebDesignCore.DTO
         public DbSet<Reserve> reserves { get; set; }
         public DbSet<UnauthorizedAbsences> unauthorizedAbsences { get; set; }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer(Setting.connectServerUrl());
-            //optionsBuilder.UseSqlServer(Setting.connectServerUrlMacOS());
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer(Setting.connectServerUrl());
+        //    //optionsBuilder.UseSqlServer(Setting.connectServerUrlMacOS());
+        //}
     }
 }
