@@ -1,4 +1,6 @@
-﻿using DJ_WebDesignCore.DTO;
+﻿using DJ_ImplementLayer.Business.StudentManager;
+using DJ_ImplementLayer.DAO;
+using DJ_LAServices.Business.StudentManager;
 using DJ_WebDesignCore.Entites.Student;
 using Microsoft.AspNetCore.Mvc;
 
@@ -8,12 +10,16 @@ namespace DJ_LotusAcademy.Controllers
     [Route("api/employee/")]
     public class EmployeeController : ControllerBase
     {
-        private LAContext context =new LAContext();
-       
-        [HttpGet("get")]
-        public ActionResult<StudentLA> getAll()
+        IStudentManager _studentManager;
+        public EmployeeController()
         {
-            return Ok(context.students.ToList());
+            _studentManager = new StudentManager(new ApplicationDbContext());
+        }
+
+        [HttpPost("createstudent")]
+        public ActionResult<StudentLA> createStudent([FromBody] StudentLA newData)
+        {
+            return Ok(_studentManager.createStudent(newData));
         }
     }
 }

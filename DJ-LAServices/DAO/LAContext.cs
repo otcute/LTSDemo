@@ -6,9 +6,9 @@ using DJ_WebDesignCore.Entites.Properties;
 using DJ_WebDesignCore.Entites.Student;
 using Microsoft.EntityFrameworkCore;
 
-namespace DJ_WebDesignCore.DTO
+namespace DJ_LAServices.DAO
 {
-    public class LAContext 
+    public class LAContext :DbContext
     {
         // Employee
         public DbSet<EmployeeLA> employeeLA { get; }
@@ -20,7 +20,7 @@ namespace DJ_WebDesignCore.DTO
         public DbSet<Gender> genders { get; set; }
         public DbSet<StudentStatus> studentStatuses { get; set; }
         // Student
-        public DbSet<StudentLA> students { get; set; }
+        public DbSet<StudentLA> studentLAs { get; set; }
         public DbSet<StudentCourse> studentCourses { get; set; }
         // Course
         public DbSet<CourseLA> courses { get; set; }

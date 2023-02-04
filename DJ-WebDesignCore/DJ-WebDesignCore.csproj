@@ -10,8 +10,12 @@
 
   <ItemGroup>
     <None Remove="Entites\Courses\" />
+    <None Remove="Enums\" />
+    <None Remove="Enums\StudentActiveManagerEnums\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Entites\Courses\" />
+    <Folder Include="Enums\" />
+    <Folder Include="Enums\StudentActiveManagerEnums\" />
   </ItemGroup>
 </Project>
