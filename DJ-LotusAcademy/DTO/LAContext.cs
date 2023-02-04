@@ -36,8 +36,8 @@ namespace DJ_WebDesignCore.DTO
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            //optionsBuilder.UseSqlServer(Setting.connectServerUrl());
-            optionsBuilder.UseSqlServer(Setting.connectServerUrlMacOS());
+            optionsBuilder.UseSqlServer(Setting.connectServerUrl());
+            //optionsBuilder.UseSqlServer(Setting.connectServerUrlMacOS());
         }
     }
 }

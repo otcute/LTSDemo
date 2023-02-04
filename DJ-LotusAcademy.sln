@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DJ-LotusAcademy", "DJ-Lotus
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DJ-WebDesignCore", "DJ-WebDesignCore\DJ-WebDesignCore.csproj", "{E799B251-1EDF-4831-A527-E0D279AA7F2E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DJ-LAServices", "DJ-LAServices\DJ-LAServices.csproj", "{CB812945-6A1E-402A-9C0A-13F52425A140}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{E799B251-1EDF-4831-A527-E0D279AA7F2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E799B251-1EDF-4831-A527-E0D279AA7F2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E799B251-1EDF-4831-A527-E0D279AA7F2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB812945-6A1E-402A-9C0A-13F52425A140}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB812945-6A1E-402A-9C0A-13F52425A140}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB812945-6A1E-402A-9C0A-13F52425A140}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB812945-6A1E-402A-9C0A-13F52425A140}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

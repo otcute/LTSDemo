@@ -3,15 +3,9 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net7.0</TargetFramework>
-    <RootNamespace>DJ_WebDesignCore</RootNamespace>
+    <RootNamespace>DJ_LAServices</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="Entites\Courses\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entites\Courses\" />
-  </ItemGroup>
 </Project>
