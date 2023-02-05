@@ -1,4 +1,4 @@
-﻿using DJ_LAServices.Business.StudentManager;
+﻿using DJ_UseCaseLayer.Business.StudentManager;
 using DJ_WebDesignCore.Business.StudentManager;
 using DJ_WebDesignCore.DTOs.StudentManagerDTOs.StudentCRUDDTOs;
 using DJ_WebDesignCore.Entites.Student;
