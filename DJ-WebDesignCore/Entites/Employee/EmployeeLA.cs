@@ -14,6 +14,7 @@ namespace DJ_WebDesignCore.Entites.Employee
         public string? EmployeeLAUserName { get; set; }
         public string? EmployeeLAPassword { get; set; }
         public EmployeeRole? EmployeeRole { get; set; }
+        public byte[]? EmployeeAvatar { get; set; }
         public int? CommuneId { get; set; }
         public Commune? Commune { get; set; }
         public int? DistrictId { get; set; }

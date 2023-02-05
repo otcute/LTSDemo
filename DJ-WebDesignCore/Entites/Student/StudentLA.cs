@@ -9,6 +9,7 @@ namespace DJ_WebDesignCore.Entites.Student
         public string? StudentLAName { get; set; }
         public string? StudentLAUserName { get; set; }
         public string? StudentLAPassword { get; set; }
+        public byte[]? StudentLAAvatar { get; set; }
         public int? CommuneId { get; set; }
         public Commune? Commune { get; set; }
         public int? DistrictId { get; set; }
