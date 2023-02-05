@@ -34,8 +34,8 @@ namespace DJ_UseCaseLayer.DAO
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(Setting.connectServerUrl());
-            //optionsBuilder.UseSqlServer(Setting.connectServerUrlMacOS());
+            //optionsBuilder.UseSqlServer(Setting.connectServerUrl());
+            optionsBuilder.UseSqlServer(Setting.connectServerUrlMacOS());
         }
       
     }
