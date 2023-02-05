@@ -1,25 +1,23 @@
 ﻿using DJ_WebDesignCore.Entites.Employee;
 using DJ_WebDesignCore.Entites.Properties;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Diagnostics.Contracts;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using DJ_WebDesignCore.Entites.Properties.Address;
 
 namespace DJ_WebDesignCore.Entites.Student
 {
-    public class StudentLA
+    public class StudentLA: BaseEntity
     {
-        public int StudentLAId { get; set; }
         public string? StudentLAName { get; set; }
         public string? StudentLAUserName { get; set; }
         public string? StudentLAPassword { get; set; }
-        public Address? Address { get; set; }
+        public int? CommuneId { get; set; }
+        public Commune? Commune { get; set; }
+        public int? DistrictId { get; set; }
+        public District? District { get; set; }
+        public int? ProvinceId { get; set; }
+        public Province? Province { get; set; }
         public DateTime? StudentLABirthDay { get; set; }
-        public EmployeeLA? Sale { get; set; }
         public int? SaleId { get; set; }
+        public virtual EmployeeLA? Sale { get; set; }
         public Gender? Gender { get; set; }
         public StudentStatus? StudentStatus { get; set; }
         public float? HolidayTotal { get; set; }

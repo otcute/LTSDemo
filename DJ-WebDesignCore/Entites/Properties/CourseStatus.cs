@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace DJ_WebDesignCore.Entites.Properties
 {
-    public class CourseStatus
+    public class CourseStatus : BaseEntity
     {
-        public int CourseStatusId { get; set; }
-        public string CourseStatusCode { get; set; }
-        public string CourseStatusName { get; set; }
+   
+        public string? CourseStatusCode { get; set; }
+        public string? CourseStatusName { get; set; }
     }
 }

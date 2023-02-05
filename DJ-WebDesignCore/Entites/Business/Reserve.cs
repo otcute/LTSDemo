@@ -9,9 +9,8 @@ using System.Threading.Tasks;
 
 namespace DJ_WebDesignCore.Entites.Business
 {
-    public class Reserve
+    public class Reserve : BaseEntity
     {
-        public int ReserveId { get; set; }
         public StudentLA? StudentLA { get; set; }
         public DateTime? OpenTime { get; set; }
         public DateTime? CloseTime { get; set;}

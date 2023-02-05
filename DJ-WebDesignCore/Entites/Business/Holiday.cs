@@ -5,9 +5,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DJ_WebDesignCore.Entites.Business
 {
-	public class Holiday
-	{
-		public int HolidayId { get; set; }
+	public class Holiday : BaseEntity
+    {
         public StudentLA? StudentLA { get; set; }
         public DateTime? OpenTime { get; set; }
         public DateTime? CloseTime { get; set; }

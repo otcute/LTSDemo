@@ -3,6 +3,7 @@ using DJ_WebDesignCore.Entites.Business;
 using DJ_WebDesignCore.Entites.Courses;
 using DJ_WebDesignCore.Entites.Employee;
 using DJ_WebDesignCore.Entites.Properties;
+using DJ_WebDesignCore.Entites.Properties.Address;
 using DJ_WebDesignCore.Entites.Student;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,7 +15,9 @@ namespace DJ_LAUseCase.DAO
         public DbSet<EmployeeLA> employeeLA { get; }
         public DbSet<EmployeeRole> employeeRoles { get; set; }
         // Properties
-        public DbSet<Address> address { get; set; }
+        public DbSet<Commune> communes { get; set; }
+        public DbSet<District> districtes { get; set; }
+        public DbSet<Province> provinces { get; set; }
         public DbSet<CourseStatus> courseStatuses { get; set; }
         public DbSet<EmployeeStatus> employeeStatuses { get; set; }
         public DbSet<Gender> genders { get; set; }
@@ -34,5 +37,6 @@ namespace DJ_LAUseCase.DAO
             optionsBuilder.UseSqlServer(Setting.connectServerUrl());
             //optionsBuilder.UseSqlServer(Setting.connectServerUrlMacOS());
         }
+      
     }
 }

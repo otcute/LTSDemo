@@ -24,11 +24,11 @@ namespace DJLAServices.Migrations
 
             modelBuilder.Entity("DJ_WebDesignCore.Entites.Business.Holiday", b =>
                 {
-                    b.Property<int>("HolidayId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("HolidayId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime?>("CloseTime")
                         .HasColumnType("datetime2");
@@ -36,7 +36,7 @@ namespace DJLAServices.Migrations
                     b.Property<int?>("DateDiff")
                         .HasColumnType("int");
 
-                    b.Property<int?>("EmployeeComfirmEmployeeLAId")
+                    b.Property<int?>("EmployeeComfirmId")
                         .HasColumnType("int");
 
                     b.Property<string>("HolidayName")
@@ -48,9 +48,9 @@ namespace DJLAServices.Migrations
                     b.Property<int?>("StudentLAId")
                         .HasColumnType("int");
 
-                    b.HasKey("HolidayId");
+                    b.HasKey("Id");
 
-                    b.HasIndex("EmployeeComfirmEmployeeLAId");
+                    b.HasIndex("EmployeeComfirmId");
 
                     b.HasIndex("StudentLAId");
 
@@ -59,11 +59,11 @@ namespace DJLAServices.Migrations
 
             modelBuilder.Entity("DJ_WebDesignCore.Entites.Business.Reserve", b =>
                 {
-                    b.Property<int>("ReserveId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ReserveId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime?>("CloseTime")
                         .HasColumnType("datetime2");
@@ -71,7 +71,7 @@ namespace DJLAServices.Migrations
                     b.Property<int?>("DateDiff")
                         .HasColumnType("int");
 
-                    b.Property<int?>("EmployeeComfirmEmployeeLAId")
+                    b.Property<int?>("EmployeeComfirmId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("OpenTime")
@@ -83,9 +83,9 @@ namespace DJLAServices.Migrations
                     b.Property<int?>("StudentLAId")
                         .HasColumnType("int");
 
-                    b.HasKey("ReserveId");
+                    b.HasKey("Id");
 
-                    b.HasIndex("EmployeeComfirmEmployeeLAId");
+                    b.HasIndex("EmployeeComfirmId");
 
                     b.HasIndex("StudentLAId");
 
@@ -94,13 +94,13 @@ namespace DJLAServices.Migrations
 
             modelBuilder.Entity("DJ_WebDesignCore.Entites.Business.UnauthorizedAbsences", b =>
                 {
-                    b.Property<int>("UnauthorizedAbsencesId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UnauthorizedAbsencesId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("EmployeeComfirmEmployeeLAId")
+                    b.Property<int?>("EmployeeComfirmId")
                         .HasColumnType("int");
 
                     b.Property<int?>("StudentLAId")
@@ -112,9 +112,9 @@ namespace DJLAServices.Migrations
                     b.Property<string>("UnauthorizedAbsencesName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("UnauthorizedAbsencesId");
+                    b.HasKey("Id");
 
-                    b.HasIndex("EmployeeComfirmEmployeeLAId");
+                    b.HasIndex("EmployeeComfirmId");
 
                     b.HasIndex("StudentLAId");
 
@@ -123,11 +123,11 @@ namespace DJLAServices.Migrations
 
             modelBuilder.Entity("DJ_WebDesignCore.Entites.Courses.CourseLA", b =>
                 {
-                    b.Property<int>("CourseLAId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CourseLAId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("CourseLACode")
                         .HasColumnType("nvarchar(max)");
@@ -135,23 +135,26 @@ namespace DJLAServices.Migrations
                     b.Property<string>("CourseLAName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("CourseLAPrice")
+                    b.Property<double?>("CourseLAPrice")
                         .HasColumnType("float");
 
-                    b.HasKey("CourseLAId");
+                    b.HasKey("Id");
 
                     b.ToTable("courses");
                 });
 
             modelBuilder.Entity("DJ_WebDesignCore.Entites.Employee.EmployeeLA", b =>
                 {
-                    b.Property<int>("EmployeeLAId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EmployeeLAId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("AddressId")
+                    b.Property<int?>("CommuneId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DistrictId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("EmployeeLABirthDay")
@@ -181,12 +184,17 @@ namespace DJLAServices.Migrations
                     b.Property<string>("NumberPhone")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("ProvinceId")
+                        .HasColumnType("int");
+
                     b.Property<string>("SkyUrl")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("EmployeeLAId");
+                    b.HasKey("Id");
 
-                    b.HasIndex("AddressId");
+                    b.HasIndex("CommuneId");
+
+                    b.HasIndex("DistrictId");
 
                     b.HasIndex("EmployeeRoleId");
 
@@ -194,37 +202,37 @@ namespace DJLAServices.Migrations
 
                     b.HasIndex("GenderId");
 
+                    b.HasIndex("ProvinceId");
+
                     b.ToTable("employeeLA");
                 });
 
             modelBuilder.Entity("DJ_WebDesignCore.Entites.Employee.EmployeeRole", b =>
                 {
-                    b.Property<int>("EmployeeRoleId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EmployeeRoleId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("EmployeeRoleCode")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EmployeeRoleName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("EmployeeRoleId");
+                    b.HasKey("Id");
 
                     b.ToTable("employeeRoles");
                 });
 
             modelBuilder.Entity("DJ_WebDesignCore.Entites.Employee.StudentCourse", b =>
                 {
-                    b.Property<int>("StudentCourseId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StudentCourseId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<DateTime?>("CloseCourse")
                         .HasColumnType("datetime2");
@@ -238,7 +246,7 @@ namespace DJLAServices.Migrations
                     b.Property<int?>("StudentLAId")
                         .HasColumnType("int");
 
-                    b.HasKey("StudentCourseId");
+                    b.HasKey("Id");
 
                     b.HasIndex("CourseLAId");
 
@@ -247,98 +255,127 @@ namespace DJLAServices.Migrations
                     b.ToTable("studentCourses");
                 });
 
-            modelBuilder.Entity("DJ_WebDesignCore.Entites.Properties.Address", b =>
+            modelBuilder.Entity("DJ_WebDesignCore.Entites.Properties.Address.Commune", b =>
                 {
-                    b.Property<int>("AddressId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AddressId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CommuneId")
+                    b.Property<string>("CommuneCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CommuneName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("communes");
+                });
+
+            modelBuilder.Entity("DJ_WebDesignCore.Entites.Properties.Address.District", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("DistrictId")
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("DistrictCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("DistrictName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("districtes");
+                });
+
+            modelBuilder.Entity("DJ_WebDesignCore.Entites.Properties.Address.Province", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    b.Property<int>("ProvinceId")
-                        .HasColumnType("int");
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.HasKey("AddressId");
+                    b.Property<string>("ProvinceCode")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("address");
+                    b.Property<string>("ProvinceName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("provinces");
                 });
 
             modelBuilder.Entity("DJ_WebDesignCore.Entites.Properties.CourseStatus", b =>
                 {
-                    b.Property<int>("CourseStatusId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CourseStatusId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("CourseStatusCode")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CourseStatusName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("CourseStatusId");
+                    b.HasKey("Id");
 
                     b.ToTable("courseStatuses");
                 });
 
             modelBuilder.Entity("DJ_WebDesignCore.Entites.Properties.EmployeeStatus", b =>
                 {
-                    b.Property<int>("EmployeeStatusId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EmployeeStatusId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("EmployeeStatusCode")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EmployeeStatusName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("EmployeeStatusId");
+                    b.HasKey("Id");
 
                     b.ToTable("employeeStatuses");
                 });
 
             modelBuilder.Entity("DJ_WebDesignCore.Entites.Properties.Gender", b =>
                 {
-                    b.Property<int>("GenderId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("GenderId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("GenderCode")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("GenderName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("GenderId");
+                    b.HasKey("Id");
 
                     b.ToTable("genders");
                 });
 
             modelBuilder.Entity("DJ_WebDesignCore.Entites.Properties.StudentStatus", b =>
                 {
-                    b.Property<int>("StudentStatusId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StudentStatusId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("StudentStatusCode")
                         .HasColumnType("nvarchar(max)");
@@ -346,20 +383,23 @@ namespace DJLAServices.Migrations
                     b.Property<string>("StudentStatusName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("StudentStatusId");
+                    b.HasKey("Id");
 
                     b.ToTable("studentStatuses");
                 });
 
             modelBuilder.Entity("DJ_WebDesignCore.Entites.Student.StudentLA", b =>
                 {
-                    b.Property<int>("StudentLAId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StudentLAId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("AddressId")
+                    b.Property<int?>("CommuneId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("DistrictId")
                         .HasColumnType("int");
 
                     b.Property<int?>("GenderId")
@@ -367,6 +407,9 @@ namespace DJLAServices.Migrations
 
                     b.Property<float?>("HolidayTotal")
                         .HasColumnType("real");
+
+                    b.Property<int?>("ProvinceId")
+                        .HasColumnType("int");
 
                     b.Property<float?>("ReserveTotal")
                         .HasColumnType("real");
@@ -392,11 +435,15 @@ namespace DJLAServices.Migrations
                     b.Property<float?>("UnauthorizedAbsencesTotal")
                         .HasColumnType("real");
 
-                    b.HasKey("StudentLAId");
+                    b.HasKey("Id");
 
-                    b.HasIndex("AddressId");
+                    b.HasIndex("CommuneId");
+
+                    b.HasIndex("DistrictId");
 
                     b.HasIndex("GenderId");
+
+                    b.HasIndex("ProvinceId");
 
                     b.HasIndex("SaleId");
 
@@ -409,7 +456,7 @@ namespace DJLAServices.Migrations
                 {
                     b.HasOne("DJ_WebDesignCore.Entites.Employee.EmployeeLA", "EmployeeComfirm")
                         .WithMany()
-                        .HasForeignKey("EmployeeComfirmEmployeeLAId");
+                        .HasForeignKey("EmployeeComfirmId");
 
                     b.HasOne("DJ_WebDesignCore.Entites.Student.StudentLA", "StudentLA")
                         .WithMany()
@@ -424,7 +471,7 @@ namespace DJLAServices.Migrations
                 {
                     b.HasOne("DJ_WebDesignCore.Entites.Employee.EmployeeLA", "EmployeeComfirm")
                         .WithMany()
-                        .HasForeignKey("EmployeeComfirmEmployeeLAId");
+                        .HasForeignKey("EmployeeComfirmId");
 
                     b.HasOne("DJ_WebDesignCore.Entites.Student.StudentLA", "StudentLA")
                         .WithMany()
@@ -439,7 +486,7 @@ namespace DJLAServices.Migrations
                 {
                     b.HasOne("DJ_WebDesignCore.Entites.Employee.EmployeeLA", "EmployeeComfirm")
                         .WithMany()
-                        .HasForeignKey("EmployeeComfirmEmployeeLAId");
+                        .HasForeignKey("EmployeeComfirmId");
 
                     b.HasOne("DJ_WebDesignCore.Entites.Student.StudentLA", "StudentLA")
                         .WithMany()
@@ -452,9 +499,13 @@ namespace DJLAServices.Migrations
 
             modelBuilder.Entity("DJ_WebDesignCore.Entites.Employee.EmployeeLA", b =>
                 {
-                    b.HasOne("DJ_WebDesignCore.Entites.Properties.Address", "Address")
+                    b.HasOne("DJ_WebDesignCore.Entites.Properties.Address.Commune", "Commune")
                         .WithMany()
-                        .HasForeignKey("AddressId");
+                        .HasForeignKey("CommuneId");
+
+                    b.HasOne("DJ_WebDesignCore.Entites.Properties.Address.District", "District")
+                        .WithMany()
+                        .HasForeignKey("DistrictId");
 
                     b.HasOne("DJ_WebDesignCore.Entites.Employee.EmployeeRole", "EmployeeRole")
                         .WithMany()
@@ -468,13 +519,21 @@ namespace DJLAServices.Migrations
                         .WithMany()
                         .HasForeignKey("GenderId");
 
-                    b.Navigation("Address");
+                    b.HasOne("DJ_WebDesignCore.Entites.Properties.Address.Province", "Province")
+                        .WithMany()
+                        .HasForeignKey("ProvinceId");
+
+                    b.Navigation("Commune");
+
+                    b.Navigation("District");
 
                     b.Navigation("EmployeeRole");
 
                     b.Navigation("EmployeeStatus");
 
                     b.Navigation("Gender");
+
+                    b.Navigation("Province");
                 });
 
             modelBuilder.Entity("DJ_WebDesignCore.Entites.Employee.StudentCourse", b =>
@@ -494,13 +553,21 @@ namespace DJLAServices.Migrations
 
             modelBuilder.Entity("DJ_WebDesignCore.Entites.Student.StudentLA", b =>
                 {
-                    b.HasOne("DJ_WebDesignCore.Entites.Properties.Address", "Address")
+                    b.HasOne("DJ_WebDesignCore.Entites.Properties.Address.Commune", "Commune")
                         .WithMany()
-                        .HasForeignKey("AddressId");
+                        .HasForeignKey("CommuneId");
+
+                    b.HasOne("DJ_WebDesignCore.Entites.Properties.Address.District", "District")
+                        .WithMany()
+                        .HasForeignKey("DistrictId");
 
                     b.HasOne("DJ_WebDesignCore.Entites.Properties.Gender", "Gender")
                         .WithMany()
                         .HasForeignKey("GenderId");
+
+                    b.HasOne("DJ_WebDesignCore.Entites.Properties.Address.Province", "Province")
+                        .WithMany()
+                        .HasForeignKey("ProvinceId");
 
                     b.HasOne("DJ_WebDesignCore.Entites.Employee.EmployeeLA", "Sale")
                         .WithMany()
@@ -510,9 +577,13 @@ namespace DJLAServices.Migrations
                         .WithMany()
                         .HasForeignKey("StudentStatusId");
 
-                    b.Navigation("Address");
+                    b.Navigation("Commune");
+
+                    b.Navigation("District");
 
                     b.Navigation("Gender");
+
+                    b.Navigation("Province");
 
                     b.Navigation("Sale");
 

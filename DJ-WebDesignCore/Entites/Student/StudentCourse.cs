@@ -5,10 +5,8 @@ using DJ_WebDesignCore.Entites.Student;
 
 namespace DJ_WebDesignCore.Entites.Employee
 {
-    public class StudentCourse
+    public class StudentCourse:BaseEntity
     {
-        public int StudentCourseId { get; set; }
-        [ForeignKey("StudentLAId")]
         public StudentLA? StudentLA { get; set; }
         public CourseLA? CourseLA { get; set; }
         public DateTime? OpenCourse { get; set; }

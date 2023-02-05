@@ -19,5 +19,10 @@ namespace DJ_InterfaceAdapterLA.APIs.StudentManagerAPIs
         {
             return Ok(_studentCRUD.createStudent(newData));
         }
+        [HttpGet("timtheoid")]
+        public ActionResult<StudentFindByIdDTO> findStudentById(int? studentId)
+        {
+            return Ok(_studentCRUD.findStudentById(studentId));
+        }
     }
 }

@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace DJ_WebDesignCore.Enums.StudentManagerEnums
 {
-    public enum StudentCreateEnums
+    public enum StudentReadEnums
     {
-        SUCCESSFULLY=1,
-        FAILED =2,
-        USERNAMEDUPLICATED = 3,
-        EMAILDUPLICATED = 4,
-        NOTFOUNDID =5
+        FOUND =1,
+        NOTFOUND =2,
+        NULLID =3
     }
 }

@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace DJ_WebDesignCore.Entites.Properties
 {
-    public class StudentStatus
+    public class StudentStatus: BaseEntity
     {
-        public int StudentStatusId { get; set; }
         public string? StudentStatusCode { get; set; }
         public string? StudentStatusName { get; set; }
     }
