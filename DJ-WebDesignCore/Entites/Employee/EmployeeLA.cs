@@ -11,22 +11,16 @@ namespace DJ_WebDesignCore.Entites.Employee
     public class EmployeeLA
     {
         public int EmployeeLAId { get; set; }
-        [ForeignKey("AddressId")]
+        public string? EmployeeLAUserName { get; set; }
+        public string? EmployeeLAPassword { get; set; }
         public Address? Address { get; set; }
-        public int? AddressId { get; set; }
-        [ForeignKey("EmployeeRoleId")]
         public EmployeeRole? EmployeeRole { get; set; }
-        public int? EmployeeRoleId { get; set; }
-        [ForeignKey("EmployeeRoleId")]
         public Gender? Gender { get; set; }
-        public int? GenderId { get; set; }
         public string? NumberPhone { get; set; }
         public string? FacebookUrl { get; set; }
         public string? SkyUrl { get; set; }
         public string? EmployeeLAName { get; set; }
         public DateTime? EmployeeLABirthDay { get; set; }
-        public int? EmployeeStatusId { get; set; }
-        [ForeignKey("EmployeeStatusId")]
         public EmployeeStatus? EmployeeStatus { get; set; }
     }
 }

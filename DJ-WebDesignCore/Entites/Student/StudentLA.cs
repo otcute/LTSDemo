@@ -3,6 +3,7 @@ using DJ_WebDesignCore.Entites.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,18 +14,16 @@ namespace DJ_WebDesignCore.Entites.Student
     {
         public int StudentLAId { get; set; }
         public string? StudentLAName { get; set; }
-        [ForeignKey("AddressId")]
+        public string? StudentLAUserName { get; set; }
+        public string? StudentLAPassword { get; set; }
         public Address? Address { get; set; }
-        public int? AddressId { get; set; }
         public DateTime? StudentLABirthDay { get; set; }
-        [ForeignKey("SaleId")]
         public EmployeeLA? Sale { get; set; }
         public int? SaleId { get; set; }
-        [ForeignKey("GenderId")]
         public Gender? Gender { get; set; }
-        public int? GenderId { get; set; }
-        public int? StudentStatusId { get; set; }
-        [ForeignKey("StudentStatusId")]
         public StudentStatus? StudentStatus { get; set; }
+        public float? HolidayTotal { get; set; }
+        public float? ReserveTotal { get; set; }
+        public float? UnauthorizedAbsencesTotal { get; set; }
     }
 }

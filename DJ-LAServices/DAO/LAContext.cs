@@ -6,7 +6,7 @@ using DJ_WebDesignCore.Entites.Properties;
 using DJ_WebDesignCore.Entites.Student;
 using Microsoft.EntityFrameworkCore;
 
-namespace DJ_LAServices.DAO
+namespace DJ_LAUseCase.DAO
 {
     public class LAContext :DbContext
     {
@@ -29,10 +29,10 @@ namespace DJ_LAServices.DAO
         public DbSet<Reserve> reserves { get; set; }
         public DbSet<UnauthorizedAbsences> unauthorizedAbsences { get; set; }
 
-        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        //{
-        //    optionsBuilder.UseSqlServer(Setting.connectServerUrl());
-        //    //optionsBuilder.UseSqlServer(Setting.connectServerUrlMacOS());
-        //}
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(Setting.connectServerUrl());
+            //optionsBuilder.UseSqlServer(Setting.connectServerUrlMacOS());
+        }
     }
 }

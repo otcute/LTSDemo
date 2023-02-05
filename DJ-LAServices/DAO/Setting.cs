@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DJ_LAServices.DAO
+namespace DJ_LAUseCase.DAO
 {
     public class Setting
     {

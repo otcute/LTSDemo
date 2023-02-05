@@ -36,7 +36,7 @@ namespace DJImplementLayer.Migrations
                     b.Property<int?>("DateDiff")
                         .HasColumnType("int");
 
-                    b.Property<int?>("EmployeeComfirmId")
+                    b.Property<int?>("EmployeeComfirmEmployeeLAId")
                         .HasColumnType("int");
 
                     b.Property<string>("HolidayName")
@@ -50,7 +50,7 @@ namespace DJImplementLayer.Migrations
 
                     b.HasKey("HolidayId");
 
-                    b.HasIndex("EmployeeComfirmId");
+                    b.HasIndex("EmployeeComfirmEmployeeLAId");
 
                     b.HasIndex("StudentLAId");
 
@@ -71,7 +71,7 @@ namespace DJImplementLayer.Migrations
                     b.Property<int?>("DateDiff")
                         .HasColumnType("int");
 
-                    b.Property<int?>("EmployeeComfirmId")
+                    b.Property<int?>("EmployeeComfirmEmployeeLAId")
                         .HasColumnType("int");
 
                     b.Property<DateTime?>("OpenTime")
@@ -85,7 +85,7 @@ namespace DJImplementLayer.Migrations
 
                     b.HasKey("ReserveId");
 
-                    b.HasIndex("EmployeeComfirmId");
+                    b.HasIndex("EmployeeComfirmEmployeeLAId");
 
                     b.HasIndex("StudentLAId");
 
@@ -100,7 +100,7 @@ namespace DJImplementLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UnauthorizedAbsencesId"));
 
-                    b.Property<int?>("EmployeeComfirmId")
+                    b.Property<int?>("EmployeeComfirmEmployeeLAId")
                         .HasColumnType("int");
 
                     b.Property<int?>("StudentLAId")
@@ -114,7 +114,7 @@ namespace DJImplementLayer.Migrations
 
                     b.HasKey("UnauthorizedAbsencesId");
 
-                    b.HasIndex("EmployeeComfirmId");
+                    b.HasIndex("EmployeeComfirmEmployeeLAId");
 
                     b.HasIndex("StudentLAId");
 
@@ -185,6 +185,8 @@ namespace DJImplementLayer.Migrations
                     b.HasIndex("EmployeeRoleId");
 
                     b.HasIndex("EmployeeStatusId");
+
+                    b.HasIndex("GenderId");
 
                     b.ToTable("employeeLA");
                 });
@@ -386,7 +388,7 @@ namespace DJImplementLayer.Migrations
                 {
                     b.HasOne("DJ_WebDesignCore.Entites.Employee.EmployeeLA", "EmployeeComfirm")
                         .WithMany()
-                        .HasForeignKey("EmployeeComfirmId");
+                        .HasForeignKey("EmployeeComfirmEmployeeLAId");
 
                     b.HasOne("DJ_WebDesignCore.Entites.Student.StudentLA", "StudentLA")
                         .WithMany()
@@ -401,7 +403,7 @@ namespace DJImplementLayer.Migrations
                 {
                     b.HasOne("DJ_WebDesignCore.Entites.Employee.EmployeeLA", "EmployeeComfirm")
                         .WithMany()
-                        .HasForeignKey("EmployeeComfirmId");
+                        .HasForeignKey("EmployeeComfirmEmployeeLAId");
 
                     b.HasOne("DJ_WebDesignCore.Entites.Student.StudentLA", "StudentLA")
                         .WithMany()
@@ -416,7 +418,7 @@ namespace DJImplementLayer.Migrations
                 {
                     b.HasOne("DJ_WebDesignCore.Entites.Employee.EmployeeLA", "EmployeeComfirm")
                         .WithMany()
-                        .HasForeignKey("EmployeeComfirmId");
+                        .HasForeignKey("EmployeeComfirmEmployeeLAId");
 
                     b.HasOne("DJ_WebDesignCore.Entites.Student.StudentLA", "StudentLA")
                         .WithMany()
@@ -437,13 +439,13 @@ namespace DJImplementLayer.Migrations
                         .WithMany()
                         .HasForeignKey("EmployeeRoleId");
 
-                    b.HasOne("DJ_WebDesignCore.Entites.Properties.Gender", "Gender")
-                        .WithMany()
-                        .HasForeignKey("EmployeeRoleId");
-
                     b.HasOne("DJ_WebDesignCore.Entites.Properties.EmployeeStatus", "EmployeeStatus")
                         .WithMany()
                         .HasForeignKey("EmployeeStatusId");
+
+                    b.HasOne("DJ_WebDesignCore.Entites.Properties.Gender", "Gender")
+                        .WithMany()
+                        .HasForeignKey("GenderId");
 
                     b.Navigation("Address");
 
