@@ -1,5 +1,5 @@
-import Header from '../components/Header';
-import SideBar from '../components/Sidebar';
+import Header from '../components/Header/Header';
+import SideBar from '../components/Sidebar/SideBar';
 import './DefaultLayout.scss';
 
 function DefaultLayout({ children }: any) {
