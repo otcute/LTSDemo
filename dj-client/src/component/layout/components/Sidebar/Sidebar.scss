@@ -1,0 +1,22 @@
+.sidebar_logo {
+    width: 100%;
+    height: 60px;
+    display: flex;
+    margin-left: 10px;
+    img {
+        width: 60px;
+        height: 60px;
+    }
+    .sidebar_title {
+        margin-left: 10px;
+    }
+    .brand_name {
+        font-size: 21px;
+        color: #04a6e1;
+        font-weight: bold;
+        line-height: 60px;
+    }
+}
+.menu_item {
+    background-color: #fbfbfb;
+}
