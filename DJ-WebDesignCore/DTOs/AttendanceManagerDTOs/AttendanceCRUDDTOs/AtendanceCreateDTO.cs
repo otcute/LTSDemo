@@ -8,7 +8,6 @@ namespace DJ_WebDesignCore.DTOs.AttendanceManagerDTOs.AttendanceCRUDDTOs
 {
     public class AtendanceCreateDTO
     {
-        public int a { get; set; }
-        pubk
+        
     }
 }

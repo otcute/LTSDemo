@@ -16,5 +16,9 @@ namespace DJ_UseCaseLayer.DAO
         {
             return "Data Source=localhost;Initial Catalog=laDatabase;User ID= sa;Password = Mamama99!;encrypt=true;trustservercertificate=true;";
         }
+        public static string connectServerUrlHostDB()
+        {
+            return "Data Source=103.216.113.32;Initial Catalog=djxuyenc;User ID= djxuyenc_qa;Password = Mamama99!@;encrypt=true;trustservercertificate=true;";
+        }
     }
 }

@@ -21,6 +21,7 @@ namespace DJ_WebDesignCore.Entites.Employee
         public District? District { get; set; }
         public int? ProvinceId { get; set; }
         public Province? Province { get; set; }
+        public int? GenderId { get; set; }
         public Gender? Gender { get; set; }
         public string? NumberPhone { get; set; }
         public string? FacebookUrl { get; set; }
