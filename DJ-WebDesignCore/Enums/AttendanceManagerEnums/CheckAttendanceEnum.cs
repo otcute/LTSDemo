@@ -14,6 +14,9 @@ namespace DJ_WebDesignCore.Enums.AttendanceManagerEnums
         SHIFT4=4,
         SHIFT1_2=5,
         SHIFT2_3=6,
-        SHIFT1_2_3=7
+        SHIFT1_2_3=7,
+        UNACTIVE=8,
+        HOLIDAY=9,
+        RESERVE=10
     }
 }
