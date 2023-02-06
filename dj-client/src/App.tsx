@@ -1,10 +1,10 @@
-
-import './App.css';
-
+import DefaultLayout from './component/layout/DefaultLayout';
 function App() {
-  return (
-    <></>
-  );
+    return (
+        <>
+            <DefaultLayout />
+        </>
+    );
 }
 
 export default App;
