@@ -3,13 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DJ-LotusAcademy", "DJ-LotusAcademy\DJ-LotusAcademy.csproj", "{4D83707D-000A-4CFA-A90F-020A5ACAEFBF}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DJ-WebDesignCore", "DJ-WebDesignCore\DJ-WebDesignCore.csproj", "{E799B251-1EDF-4831-A527-E0D279AA7F2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DJ-LAServices", "DJ-LAServices\DJ-LAServices.csproj", "{CB812945-6A1E-402A-9C0A-13F52425A140}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DJ-InterfaceAdapterLA", "DJ-InterfaceAdapterLA\DJ-InterfaceAdapterLA.csproj", "{9E432397-005D-47B2-A6DB-C687FDE0FF5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DJ-ImplementLayer", "DJ-ImplementLayer\DJ-ImplementLayer.csproj", "{2A97F1CA-8B42-4BB1-8443-BE6B4111E177}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DJ-UseCaseLayer", "DJ-UseCaseLayer\DJ-UseCaseLayer.csproj", "{E2FB9C21-2D44-4B52-BDF4-B9CE3CB19C7F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,22 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4D83707D-000A-4CFA-A90F-020A5ACAEFBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4D83707D-000A-4CFA-A90F-020A5ACAEFBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4D83707D-000A-4CFA-A90F-020A5ACAEFBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4D83707D-000A-4CFA-A90F-020A5ACAEFBF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E799B251-1EDF-4831-A527-E0D279AA7F2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E799B251-1EDF-4831-A527-E0D279AA7F2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E799B251-1EDF-4831-A527-E0D279AA7F2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E799B251-1EDF-4831-A527-E0D279AA7F2E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CB812945-6A1E-402A-9C0A-13F52425A140}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CB812945-6A1E-402A-9C0A-13F52425A140}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CB812945-6A1E-402A-9C0A-13F52425A140}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CB812945-6A1E-402A-9C0A-13F52425A140}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2A97F1CA-8B42-4BB1-8443-BE6B4111E177}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2A97F1CA-8B42-4BB1-8443-BE6B4111E177}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2A97F1CA-8B42-4BB1-8443-BE6B4111E177}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2A97F1CA-8B42-4BB1-8443-BE6B4111E177}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E432397-005D-47B2-A6DB-C687FDE0FF5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E432397-005D-47B2-A6DB-C687FDE0FF5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E432397-005D-47B2-A6DB-C687FDE0FF5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E432397-005D-47B2-A6DB-C687FDE0FF5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2FB9C21-2D44-4B52-BDF4-B9CE3CB19C7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2FB9C21-2D44-4B52-BDF4-B9CE3CB19C7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2FB9C21-2D44-4B52-BDF4-B9CE3CB19C7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2FB9C21-2D44-4B52-BDF4-B9CE3CB19C7F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

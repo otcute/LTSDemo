@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace DJ_WebDesignCore.Entites.Employee
 {
-    public class EmployeeRole
+    public class EmployeeRole : BaseEntity
     {
-        public int EmployeeRoleId { get; set; }
-        public string EmployeeRoleCode { get; set; }
-        public string EmployeeRoleName { get; set; }
+        public string? EmployeeRoleCode { get; set; }
+        public string? EmployeeRoleName { get; set; }
     }
 }
