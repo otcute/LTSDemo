@@ -22,6 +22,40 @@ namespace DJUseCaseLayer.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("DJ_WebDesignCore.Entites.Business.Attendance", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("AttendanceTypeStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("ComfirmDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("EmployeeComfirmId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("StudentLAId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UnauthorizedAbsencesName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AttendanceTypeStatusId");
+
+                    b.HasIndex("EmployeeComfirmId");
+
+                    b.HasIndex("StudentLAId");
+
+                    b.ToTable("attendance");
+                });
+
             modelBuilder.Entity("DJ_WebDesignCore.Entites.Business.Holiday", b =>
                 {
                     b.Property<int>("Id")
@@ -55,6 +89,75 @@ namespace DJUseCaseLayer.Migrations
                     b.HasIndex("StudentLAId");
 
                     b.ToTable("holidays");
+                });
+
+            modelBuilder.Entity("DJ_WebDesignCore.Entites.Business.Intern", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("CloseDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("EmployeeLeadId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("InternStatusId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("OpenDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("StudentSlot")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeeLeadId");
+
+                    b.HasIndex("InternStatusId");
+
+                    b.ToTable("interns");
+                });
+
+            modelBuilder.Entity("DJ_WebDesignCore.Entites.Business.InternTask", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("EmployeeLAConfirmId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("EmployeeLAEmployeeConfirmId")
+                        .HasColumnType("int");
+
+                    b.Property<double?>("EvaluateScore")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("InternId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LeadEvaluate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("StudentLAId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeeLAEmployeeConfirmId");
+
+                    b.HasIndex("InternId");
+
+                    b.HasIndex("StudentLAId");
+
+                    b.ToTable("internTasks");
                 });
 
             modelBuilder.Entity("DJ_WebDesignCore.Entites.Business.Reserve", b =>
@@ -92,7 +195,7 @@ namespace DJUseCaseLayer.Migrations
                     b.ToTable("reserves");
                 });
 
-            modelBuilder.Entity("DJ_WebDesignCore.Entites.Business.UnauthorizedAbsences", b =>
+            modelBuilder.Entity("DJ_WebDesignCore.Entites.Business.StudentCourse", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -100,25 +203,91 @@ namespace DJUseCaseLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("EmployeeComfirmId")
+                    b.Property<DateTime?>("CloseCourse")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("CourseLAId")
                         .HasColumnType("int");
+
+                    b.Property<DateTime?>("OpenCourse")
+                        .HasColumnType("datetime2");
 
                     b.Property<int?>("StudentLAId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime?>("UnauthorizedAbsencesDateTime")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("UnauthorizedAbsencesName")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("EmployeeComfirmId");
+                    b.HasIndex("CourseLAId");
 
                     b.HasIndex("StudentLAId");
 
-                    b.ToTable("unauthorizedAbsences");
+                    b.ToTable("studentCourses");
+                });
+
+            modelBuilder.Entity("DJ_WebDesignCore.Entites.Business.StudentLACourseLesson", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("CloseCourse")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("CourseLessonId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("EmployeeEvaluate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("EmployeeLAComfirmId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("OpenCourse")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double?>("Score")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("StudentLAId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CourseLessonId");
+
+                    b.HasIndex("EmployeeLAComfirmId");
+
+                    b.HasIndex("StudentLAId");
+
+                    b.ToTable("studentLACourseLessons");
+                });
+
+            modelBuilder.Entity("DJ_WebDesignCore.Entites.Business.StudentLAIntern", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("InternId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("JoinDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("StudentLAId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("InternId");
+
+                    b.HasIndex("StudentLAId");
+
+                    b.ToTable("studentLAInterns");
                 });
 
             modelBuilder.Entity("DJ_WebDesignCore.Entites.Courses.CourseLA", b =>
@@ -148,6 +317,35 @@ namespace DJUseCaseLayer.Migrations
                     b.ToTable("courses");
                 });
 
+            modelBuilder.Entity("DJ_WebDesignCore.Entites.Courses.CourseLesson", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("CourseLAId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CourseLessonCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CourseLessonName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("CourseLessonStatusId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CourseLAId");
+
+                    b.HasIndex("CourseLessonStatusId");
+
+                    b.ToTable("courseLessons");
+                });
+
             modelBuilder.Entity("DJ_WebDesignCore.Entites.Employee.EmployeeLA", b =>
                 {
                     b.Property<int>("Id")
@@ -156,14 +354,8 @@ namespace DJUseCaseLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("CommuneId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DistrictId")
-                        .HasColumnType("int");
-
-                    b.Property<byte[]>("EmployeeAvatar")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<string>("DistrictCode")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime?>("EmployeeLABirthDay")
                         .HasColumnType("datetime2");
@@ -192,17 +384,18 @@ namespace DJUseCaseLayer.Migrations
                     b.Property<string>("NumberPhone")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ProvinceId")
-                        .HasColumnType("int");
+                    b.Property<string>("ProvinceCode")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("SkyUrl")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("WardCode")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("CommuneId");
-
-                    b.HasIndex("DistrictId");
+                    b.HasIndex("DistrictCode");
 
                     b.HasIndex("EmployeeRoleId");
 
@@ -210,7 +403,9 @@ namespace DJUseCaseLayer.Migrations
 
                     b.HasIndex("GenderId");
 
-                    b.HasIndex("ProvinceId");
+                    b.HasIndex("ProvinceCode");
+
+                    b.HasIndex("WardCode");
 
                     b.ToTable("employeeLA");
                 });
@@ -234,7 +429,7 @@ namespace DJUseCaseLayer.Migrations
                     b.ToTable("employeeRoles");
                 });
 
-            modelBuilder.Entity("DJ_WebDesignCore.Entites.Employee.StudentCourse", b =>
+            modelBuilder.Entity("DJ_WebDesignCore.Entites.Properties.Address.AdministrativeRegion", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -242,28 +437,24 @@ namespace DJUseCaseLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime?>("CloseCourse")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("code_name")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("CourseLAId")
-                        .HasColumnType("int");
+                    b.Property<string>("code_name_en")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime?>("OpenCourse")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("name")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("StudentLAId")
-                        .HasColumnType("int");
+                    b.Property<string>("name_en")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CourseLAId");
-
-                    b.HasIndex("StudentLAId");
-
-                    b.ToTable("studentCourses");
+                    b.ToTable("administrative_regions");
                 });
 
-            modelBuilder.Entity("DJ_WebDesignCore.Entites.Properties.Address.Commune", b =>
+            modelBuilder.Entity("DJ_WebDesignCore.Entites.Properties.Address.AdministrativeUnits", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -271,37 +462,135 @@ namespace DJUseCaseLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("CommuneCode")
+                    b.Property<string>("code_name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("CommuneName")
+                    b.Property<string>("code_name_en")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("full_name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("full_name_en")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("short_name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("short_name_en")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("communes");
+                    b.ToTable("administrative_units");
                 });
 
             modelBuilder.Entity("DJ_WebDesignCore.Entites.Properties.Address.District", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("code")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("administrative_unit_id")
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("DistrictCode")
+                    b.Property<string>("code_name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("DistrictName")
+                    b.Property<string>("full_name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.Property<string>("full_name_en")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("districtes");
+                    b.Property<string>("name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("name_en")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("province_code")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("code");
+
+                    b.HasIndex("administrative_unit_id");
+
+                    b.HasIndex("province_code");
+
+                    b.ToTable("districts");
                 });
 
             modelBuilder.Entity("DJ_WebDesignCore.Entites.Properties.Address.Province", b =>
+                {
+                    b.Property<string>("code")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("administrative_region_id")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("administrative_unit_id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("code_name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("full_name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("full_name_en")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("name_en")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("code");
+
+                    b.HasIndex("administrative_region_id");
+
+                    b.HasIndex("administrative_unit_id");
+
+                    b.ToTable("provinces");
+                });
+
+            modelBuilder.Entity("DJ_WebDesignCore.Entites.Properties.Address.Ward", b =>
+                {
+                    b.Property<string>("code")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int?>("administrative_unit_id")
+                        .HasColumnType("int");
+
+                    b.Property<string>("code_name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("district_code")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("full_name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("full_name_en")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("name_en")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("code");
+
+                    b.HasIndex("administrative_unit_id");
+
+                    b.HasIndex("district_code");
+
+                    b.ToTable("wards");
+                });
+
+            modelBuilder.Entity("DJ_WebDesignCore.Entites.Properties.AttendanceTypeStatus", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -309,15 +598,34 @@ namespace DJUseCaseLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("ProvinceCode")
+                    b.Property<string>("AttendanceTypeCode")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ProvinceName")
+                    b.Property<string>("AttendanceTypeName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("provinces");
+                    b.ToTable("attendanceTypeStatuses");
+                });
+
+            modelBuilder.Entity("DJ_WebDesignCore.Entites.Properties.CourseLessonStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CourseLessonStatusCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CourseLessonStatusName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("courseLessonStatuses");
                 });
 
             modelBuilder.Entity("DJ_WebDesignCore.Entites.Properties.CourseStatus", b =>
@@ -377,6 +685,25 @@ namespace DJUseCaseLayer.Migrations
                     b.ToTable("genders");
                 });
 
+            modelBuilder.Entity("DJ_WebDesignCore.Entites.Properties.InternStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("InternStatusCode")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("InternStatusName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("internStatuses");
+                });
+
             modelBuilder.Entity("DJ_WebDesignCore.Entites.Properties.StudentStatus", b =>
                 {
                     b.Property<int>("Id")
@@ -404,11 +731,8 @@ namespace DJUseCaseLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("CommuneId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("DistrictId")
-                        .HasColumnType("int");
+                    b.Property<string>("DistrictCode")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int?>("GenderId")
                         .HasColumnType("int");
@@ -416,17 +740,17 @@ namespace DJUseCaseLayer.Migrations
                     b.Property<float?>("HolidayTotal")
                         .HasColumnType("real");
 
-                    b.Property<int?>("ProvinceId")
-                        .HasColumnType("int");
+                    b.Property<string>("InsightName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProvinceCode")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<float?>("ReserveTotal")
                         .HasColumnType("real");
 
                     b.Property<int?>("SaleId")
                         .HasColumnType("int");
-
-                    b.Property<byte[]>("StudentLAAvatar")
-                        .HasColumnType("varbinary(max)");
 
                     b.Property<DateTime?>("StudentLABirthDay")
                         .HasColumnType("datetime2");
@@ -446,21 +770,45 @@ namespace DJUseCaseLayer.Migrations
                     b.Property<float?>("UnauthorizedAbsencesTotal")
                         .HasColumnType("real");
 
+                    b.Property<string>("WardCode")
+                        .HasColumnType("nvarchar(450)");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("CommuneId");
-
-                    b.HasIndex("DistrictId");
+                    b.HasIndex("DistrictCode");
 
                     b.HasIndex("GenderId");
 
-                    b.HasIndex("ProvinceId");
+                    b.HasIndex("ProvinceCode");
 
                     b.HasIndex("SaleId");
 
                     b.HasIndex("StudentStatusId");
 
+                    b.HasIndex("WardCode");
+
                     b.ToTable("studentLAs");
+                });
+
+            modelBuilder.Entity("DJ_WebDesignCore.Entites.Business.Attendance", b =>
+                {
+                    b.HasOne("DJ_WebDesignCore.Entites.Properties.AttendanceTypeStatus", "AttendanceTypeStatus")
+                        .WithMany()
+                        .HasForeignKey("AttendanceTypeStatusId");
+
+                    b.HasOne("DJ_WebDesignCore.Entites.Employee.EmployeeLA", "EmployeeComfirm")
+                        .WithMany()
+                        .HasForeignKey("EmployeeComfirmId");
+
+                    b.HasOne("DJ_WebDesignCore.Entites.Student.StudentLA", "StudentLA")
+                        .WithMany()
+                        .HasForeignKey("StudentLAId");
+
+                    b.Navigation("AttendanceTypeStatus");
+
+                    b.Navigation("EmployeeComfirm");
+
+                    b.Navigation("StudentLA");
                 });
 
             modelBuilder.Entity("DJ_WebDesignCore.Entites.Business.Holiday", b =>
@@ -474,6 +822,42 @@ namespace DJUseCaseLayer.Migrations
                         .HasForeignKey("StudentLAId");
 
                     b.Navigation("EmployeeComfirm");
+
+                    b.Navigation("StudentLA");
+                });
+
+            modelBuilder.Entity("DJ_WebDesignCore.Entites.Business.Intern", b =>
+                {
+                    b.HasOne("DJ_WebDesignCore.Entites.Employee.EmployeeLA", "EmployeeLead")
+                        .WithMany()
+                        .HasForeignKey("EmployeeLeadId");
+
+                    b.HasOne("DJ_WebDesignCore.Entites.Properties.InternStatus", "InternStatus")
+                        .WithMany()
+                        .HasForeignKey("InternStatusId");
+
+                    b.Navigation("EmployeeLead");
+
+                    b.Navigation("InternStatus");
+                });
+
+            modelBuilder.Entity("DJ_WebDesignCore.Entites.Business.InternTask", b =>
+                {
+                    b.HasOne("DJ_WebDesignCore.Entites.Employee.EmployeeLA", "EmployeeLAEmployeeConfirm")
+                        .WithMany()
+                        .HasForeignKey("EmployeeLAEmployeeConfirmId");
+
+                    b.HasOne("DJ_WebDesignCore.Entites.Business.Intern", "Intern")
+                        .WithMany()
+                        .HasForeignKey("InternId");
+
+                    b.HasOne("DJ_WebDesignCore.Entites.Student.StudentLA", "StudentLA")
+                        .WithMany()
+                        .HasForeignKey("StudentLAId");
+
+                    b.Navigation("EmployeeLAEmployeeConfirm");
+
+                    b.Navigation("Intern");
 
                     b.Navigation("StudentLA");
                 });
@@ -493,17 +877,53 @@ namespace DJUseCaseLayer.Migrations
                     b.Navigation("StudentLA");
                 });
 
-            modelBuilder.Entity("DJ_WebDesignCore.Entites.Business.UnauthorizedAbsences", b =>
+            modelBuilder.Entity("DJ_WebDesignCore.Entites.Business.StudentCourse", b =>
                 {
-                    b.HasOne("DJ_WebDesignCore.Entites.Employee.EmployeeLA", "EmployeeComfirm")
+                    b.HasOne("DJ_WebDesignCore.Entites.Courses.CourseLA", "CourseLA")
                         .WithMany()
-                        .HasForeignKey("EmployeeComfirmId");
+                        .HasForeignKey("CourseLAId");
 
                     b.HasOne("DJ_WebDesignCore.Entites.Student.StudentLA", "StudentLA")
                         .WithMany()
                         .HasForeignKey("StudentLAId");
 
-                    b.Navigation("EmployeeComfirm");
+                    b.Navigation("CourseLA");
+
+                    b.Navigation("StudentLA");
+                });
+
+            modelBuilder.Entity("DJ_WebDesignCore.Entites.Business.StudentLACourseLesson", b =>
+                {
+                    b.HasOne("DJ_WebDesignCore.Entites.Courses.CourseLesson", "CourseLesson")
+                        .WithMany()
+                        .HasForeignKey("CourseLessonId");
+
+                    b.HasOne("DJ_WebDesignCore.Entites.Employee.EmployeeLA", "EmployeeLAComfirm")
+                        .WithMany()
+                        .HasForeignKey("EmployeeLAComfirmId");
+
+                    b.HasOne("DJ_WebDesignCore.Entites.Student.StudentLA", "StudentLA")
+                        .WithMany()
+                        .HasForeignKey("StudentLAId");
+
+                    b.Navigation("CourseLesson");
+
+                    b.Navigation("EmployeeLAComfirm");
+
+                    b.Navigation("StudentLA");
+                });
+
+            modelBuilder.Entity("DJ_WebDesignCore.Entites.Business.StudentLAIntern", b =>
+                {
+                    b.HasOne("DJ_WebDesignCore.Entites.Business.Intern", "Intern")
+                        .WithMany()
+                        .HasForeignKey("InternId");
+
+                    b.HasOne("DJ_WebDesignCore.Entites.Student.StudentLA", "StudentLA")
+                        .WithMany()
+                        .HasForeignKey("StudentLAId");
+
+                    b.Navigation("Intern");
 
                     b.Navigation("StudentLA");
                 });
@@ -517,15 +937,26 @@ namespace DJUseCaseLayer.Migrations
                     b.Navigation("CourseStatus");
                 });
 
+            modelBuilder.Entity("DJ_WebDesignCore.Entites.Courses.CourseLesson", b =>
+                {
+                    b.HasOne("DJ_WebDesignCore.Entites.Courses.CourseLA", "CourseLA")
+                        .WithMany()
+                        .HasForeignKey("CourseLAId");
+
+                    b.HasOne("DJ_WebDesignCore.Entites.Properties.CourseLessonStatus", "CourseLessonStatus")
+                        .WithMany()
+                        .HasForeignKey("CourseLessonStatusId");
+
+                    b.Navigation("CourseLA");
+
+                    b.Navigation("CourseLessonStatus");
+                });
+
             modelBuilder.Entity("DJ_WebDesignCore.Entites.Employee.EmployeeLA", b =>
                 {
-                    b.HasOne("DJ_WebDesignCore.Entites.Properties.Address.Commune", "Commune")
-                        .WithMany()
-                        .HasForeignKey("CommuneId");
-
                     b.HasOne("DJ_WebDesignCore.Entites.Properties.Address.District", "District")
                         .WithMany()
-                        .HasForeignKey("DistrictId");
+                        .HasForeignKey("DistrictCode");
 
                     b.HasOne("DJ_WebDesignCore.Entites.Employee.EmployeeRole", "EmployeeRole")
                         .WithMany()
@@ -541,9 +972,11 @@ namespace DJUseCaseLayer.Migrations
 
                     b.HasOne("DJ_WebDesignCore.Entites.Properties.Address.Province", "Province")
                         .WithMany()
-                        .HasForeignKey("ProvinceId");
+                        .HasForeignKey("ProvinceCode");
 
-                    b.Navigation("Commune");
+                    b.HasOne("DJ_WebDesignCore.Entites.Properties.Address.Ward", "Ward")
+                        .WithMany()
+                        .HasForeignKey("WardCode");
 
                     b.Navigation("District");
 
@@ -554,32 +987,60 @@ namespace DJUseCaseLayer.Migrations
                     b.Navigation("Gender");
 
                     b.Navigation("Province");
+
+                    b.Navigation("Ward");
                 });
 
-            modelBuilder.Entity("DJ_WebDesignCore.Entites.Employee.StudentCourse", b =>
+            modelBuilder.Entity("DJ_WebDesignCore.Entites.Properties.Address.District", b =>
                 {
-                    b.HasOne("DJ_WebDesignCore.Entites.Courses.CourseLA", "CourseLA")
+                    b.HasOne("DJ_WebDesignCore.Entites.Properties.Address.AdministrativeUnits", "AdministrativeUnit")
                         .WithMany()
-                        .HasForeignKey("CourseLAId");
+                        .HasForeignKey("administrative_unit_id");
 
-                    b.HasOne("DJ_WebDesignCore.Entites.Student.StudentLA", "StudentLA")
+                    b.HasOne("DJ_WebDesignCore.Entites.Properties.Address.Province", "Province")
                         .WithMany()
-                        .HasForeignKey("StudentLAId");
+                        .HasForeignKey("province_code");
 
-                    b.Navigation("CourseLA");
+                    b.Navigation("AdministrativeUnit");
 
-                    b.Navigation("StudentLA");
+                    b.Navigation("Province");
+                });
+
+            modelBuilder.Entity("DJ_WebDesignCore.Entites.Properties.Address.Province", b =>
+                {
+                    b.HasOne("DJ_WebDesignCore.Entites.Properties.Address.AdministrativeRegion", "AdministrativeRegion")
+                        .WithMany()
+                        .HasForeignKey("administrative_region_id");
+
+                    b.HasOne("DJ_WebDesignCore.Entites.Properties.Address.AdministrativeUnits", "AdministrativeUnit")
+                        .WithMany()
+                        .HasForeignKey("administrative_unit_id");
+
+                    b.Navigation("AdministrativeRegion");
+
+                    b.Navigation("AdministrativeUnit");
+                });
+
+            modelBuilder.Entity("DJ_WebDesignCore.Entites.Properties.Address.Ward", b =>
+                {
+                    b.HasOne("DJ_WebDesignCore.Entites.Properties.Address.AdministrativeUnits", "AdministrativeUnit")
+                        .WithMany()
+                        .HasForeignKey("administrative_unit_id");
+
+                    b.HasOne("DJ_WebDesignCore.Entites.Properties.Address.District", "District")
+                        .WithMany()
+                        .HasForeignKey("district_code");
+
+                    b.Navigation("AdministrativeUnit");
+
+                    b.Navigation("District");
                 });
 
             modelBuilder.Entity("DJ_WebDesignCore.Entites.Student.StudentLA", b =>
                 {
-                    b.HasOne("DJ_WebDesignCore.Entites.Properties.Address.Commune", "Commune")
-                        .WithMany()
-                        .HasForeignKey("CommuneId");
-
                     b.HasOne("DJ_WebDesignCore.Entites.Properties.Address.District", "District")
                         .WithMany()
-                        .HasForeignKey("DistrictId");
+                        .HasForeignKey("DistrictCode");
 
                     b.HasOne("DJ_WebDesignCore.Entites.Properties.Gender", "Gender")
                         .WithMany()
@@ -587,7 +1048,7 @@ namespace DJUseCaseLayer.Migrations
 
                     b.HasOne("DJ_WebDesignCore.Entites.Properties.Address.Province", "Province")
                         .WithMany()
-                        .HasForeignKey("ProvinceId");
+                        .HasForeignKey("ProvinceCode");
 
                     b.HasOne("DJ_WebDesignCore.Entites.Employee.EmployeeLA", "Sale")
                         .WithMany()
@@ -597,7 +1058,9 @@ namespace DJUseCaseLayer.Migrations
                         .WithMany()
                         .HasForeignKey("StudentStatusId");
 
-                    b.Navigation("Commune");
+                    b.HasOne("DJ_WebDesignCore.Entites.Properties.Address.Ward", "Ward")
+                        .WithMany()
+                        .HasForeignKey("WardCode");
 
                     b.Navigation("District");
 
@@ -608,6 +1071,8 @@ namespace DJUseCaseLayer.Migrations
                     b.Navigation("Sale");
 
                     b.Navigation("StudentStatus");
+
+                    b.Navigation("Ward");
                 });
 #pragma warning restore 612, 618
         }

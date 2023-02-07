@@ -9,6 +9,10 @@ namespace DJ_UseCaseLayer.DAO
         {
             return "Data Source=localhost;Initial Catalog=djxuyenc_ladatabase;User ID=djxuyenc_qa;password=Mamama99!@;encrypt=true;trustservercertificate=true;";
         }
+        public static string urlWin()
+        {
+            return "Data Source=localhost;Initial Catalog=djxuyenc_ladatabase;User ID=sa;password=1231234;encrypt=true;trustservercertificate=true;";
+        }
     }
 }
 
