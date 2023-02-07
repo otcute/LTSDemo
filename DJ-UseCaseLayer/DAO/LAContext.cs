@@ -11,6 +11,7 @@ namespace DJ_UseCaseLayer.DAO
 {
     public class LAContext :DbContext
     {
+
         // Employee
         public DbSet<EmployeeLA> employeeLA { get; }
         public DbSet<EmployeeRole> employeeRoles { get; set; }
@@ -36,7 +37,7 @@ namespace DJ_UseCaseLayer.DAO
         {
            //optionsBuilder.UseSqlServer(Setting.connectServerUrl());
             //optionsBuilder.UseSqlServer(Setting.connectServerUrlMacOS());
-            optionsBuilder.UseSqlServer(Setting.connectHostVN());
+            optionsBuilder.UseSqlServer(Setting.url());
 
         }
 

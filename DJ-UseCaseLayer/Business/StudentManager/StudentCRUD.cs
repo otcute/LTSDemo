@@ -12,6 +12,8 @@ namespace DJ_UseCaseLayer.Business.StudentManager
 {
     public class StudentCRUD : BaseDB, IStudentCRUD
     {
+      
+
         public StudentFindByIdDTO findStudentById(int? studentId)
         {
             StudentFindByIdDTO res= new StudentFindByIdDTO();

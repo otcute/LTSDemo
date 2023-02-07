@@ -1,24 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 
 namespace DJ_UseCaseLayer.DAO
 {
-    public class Setting
-    {
-        public static string connectServerUrl()
+	public class Setting
+	{
+        public static string url()
         {
-            return "Data Source=localhost;Initial Catalog=laDatabase;Integrated Security=True;encrypt=true;trustservercertificate=true;";
-        }
-        public static string connectServerUrlMacOS()
-        {
-            return "Data Source=localhost;Initial Catalog=laDatabase;User ID= sa;Password = Mamama99!;encrypt=true;trustservercertificate=true;";
-        }
-        public static string connectHostVN()
-        {
-           return "Data Source=103.216.113.32;Initial Catalog=djxuyenc_ladatabase;User ID=djxuyenc_qa";
+            var builder = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+            var configuration = builder.Build();
+            var value = configuration.GetSection("ConnectString");
+            return value.GetValue<string>("urlMacOS");
         }
     }
 }
+

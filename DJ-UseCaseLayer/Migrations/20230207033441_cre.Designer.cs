@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DJUseCaseLayer.Migrations
 {
     [DbContext(typeof(LAContext))]
-    [Migration("20230206094918_cre")]
+    [Migration("20230207033441_cre")]
     partial class cre
     {
         /// <inheritdoc />

@@ -19,4 +19,7 @@
     <ProjectReference Include="..\DJ-WebDesignCore\DJ-WebDesignCore.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Microsoft.Extensions.Configuration" />
+  </ItemGroup>
 </Project>
