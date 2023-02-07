@@ -3,17 +3,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBarsStaggered, faBell, faGear } from '@fortawesome/free-solid-svg-icons';
 import { useProSidebar } from 'react-pro-sidebar';
 import { useEffect, useState } from 'react';
-import studentManagerApi from '../../../../api/BusinessApi/StudentManagerApi'
+import studentManagerApi from '../../../../api/BusinessApi/StudentManagerApi';
 function Header() {
     const { collapseSidebar } = useProSidebar();
-    const [data,setData] = useState(0);
-    useEffect(()=>{
-        const getData = async ()=>{
-const data = await studentManagerApi.login1();
-setData(data);
-        }
+    const [data, setData] = useState(0);
+    useEffect(() => {
+        const getData = async () => {
+            const data = await studentManagerApi.login1();
+            setData(data);
+        };
         getData();
-    },[])
+    }, []);
     return (
         <div className="header">
             <div className="header_left">

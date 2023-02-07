@@ -7,11 +7,7 @@ namespace DJ_UseCaseLayer.DAO
 	{
         public static string url()
         {
-            var builder = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
-            var configuration = builder.Build();
-            var value = configuration.GetSection("ConnectString");
-            return value.GetValue<string>("urlMacOS");
+            return "Data Source=localhost;Initial Catalog=djxuyenc_ladatabase;User ID=djxuyenc_qa;password=Mamama99!@;encrypt=true;trustservercertificate=true;";
         }
     }
 }
