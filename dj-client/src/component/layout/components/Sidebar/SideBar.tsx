@@ -2,7 +2,7 @@ import './Sidebar.scss';
 import logo from '../../../../assets/logo.png';
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHouse, faUserPen, faUser, faUserGroup, faBars, faCalendarCheck } from '@fortawesome/free-solid-svg-icons';
+import { faHouse, faUser, faUserGroup, faBars, faCalendarCheck } from '@fortawesome/free-solid-svg-icons';
 
 function SideBar() {
     return (
@@ -16,9 +16,6 @@ function SideBar() {
             <Menu>
                 <MenuItem icon={<FontAwesomeIcon icon={faHouse} />} className="menu_item">
                     Bảng tin
-                </MenuItem>
-                <MenuItem icon={<FontAwesomeIcon icon={faUserPen} />} className="menu_item">
-                    Thông tin cá nhân
                 </MenuItem>
                 <SubMenu label="Học viên" icon={<FontAwesomeIcon icon={faUser} />} className="sub_menu">
                     <MenuItem className="menu_item">Điểm danh</MenuItem>

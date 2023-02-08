@@ -1,4 +1,5 @@
-import DefaultLayout from './component/layout/DefaultLayout';
+import DefaultLayout from './component/layout/DefaultLayout/DefaultLayout';
+
 function App() {
     return (
         <>
