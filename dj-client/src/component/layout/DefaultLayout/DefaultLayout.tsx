@@ -1,4 +1,4 @@
-import Header from '../components/Header';
+import Header from '../components/Header/Header';
 import SideBar from '../components/Sidebar/SideBar';
 import TableComponent from '../../Table/TableComponent';
 import './DefaultLayout.scss';
