@@ -22,7 +22,7 @@ namespace DJ_InterfaceAdapterLA.APIs.StudentManagerAPIs
         [HttpGet("timtheoid")]
         public ActionResult<StudentFindByIdDTO> findStudentById(int? studentId)
         {
-            return Ok(_studentCRUD.findStudentById(studentId));
+           return Ok(_studentCRUD.findStudentById(studentId));
         }
     }
 }

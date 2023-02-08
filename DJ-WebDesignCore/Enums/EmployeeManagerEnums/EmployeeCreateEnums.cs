@@ -11,7 +11,5 @@ namespace DJ_WebDesignCore.Enums.EmployeeManagerEnums
         SUCCESSFULLY=1,
         USERNAMEDUPLICATED =2,
         EMAILDUPLICATED =3
-
-        
     }
 }

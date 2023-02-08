@@ -14,13 +14,17 @@ namespace DJ_WebDesignCore.Entites.Employee
         public string? EmployeeLAUserName { get; set; }
         public string? EmployeeLAPassword { get; set; }
         public EmployeeRole? EmployeeRole { get; set; }
-        public byte[]? EmployeeAvatar { get; set; }
-        public int? CommuneId { get; set; }
-        public Commune? Commune { get; set; }
-        public int? DistrictId { get; set; }
+        //  public byte[]? EmployeeAvatar { get; set; }
+        public string? WardCode { get; set; }
+        [ForeignKey("WardCode")]
+        public Ward? Ward { get; set; }
+        public string? DistrictCode { get; set; }
+        [ForeignKey("DistrictCode")]
         public District? District { get; set; }
-        public int? ProvinceId { get; set; }
+        public string? ProvinceCode { get; set; }
+        [ForeignKey("ProvinceCode")]
         public Province? Province { get; set; }
+        public int? GenderId { get; set; }
         public Gender? Gender { get; set; }
         public string? NumberPhone { get; set; }
         public string? FacebookUrl { get; set; }
