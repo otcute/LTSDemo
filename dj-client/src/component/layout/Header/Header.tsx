@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBarsStaggered, faBell, faGear } from '@fortawesome/free-solid-svg-icons';
 import { useProSidebar } from 'react-pro-sidebar';
 import { useEffect, useState } from 'react';
-import studentManagerApi from '../../../../api/BusinessApi/StudentManagerApi';
+import studentManagerApi from '../../../api/BusinessApi/StudentManagerApi';
 function Header() {
     const { collapseSidebar } = useProSidebar();
     const [data, setData] = useState(0);

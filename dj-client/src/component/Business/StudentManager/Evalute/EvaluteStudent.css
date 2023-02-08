@@ -1,0 +1,49 @@
+.EvaStudent .table-title {
+    height: 36px;
+    margin-bottom: 16px;
+    font-size: 24px;
+}
+
+.EvaStudent th {
+    height: 44px;
+    background-color: #F9FAFB !important;
+    color: rgb(80, 79, 79);
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: .05em;
+    line-height: 1rem;
+    padding: 0.75rem 1.5rem;
+    text-align: left;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+.EvaStudent table{
+    width: 100%;
+}
+.EvaStudent table #table-name,.EvaStudent table #table-contact{
+    width: 25%;
+    float: left;
+}
+.EvaStudent table #table-course, .EvaStudent table #table-turtol,
+.EvaStudent table #table-active{
+    width: 16.666666%;
+    float: left;
+}
+.EvaStudent table tr th span {
+    padding-left: 4%;
+}
+
+.EvaStudent table tr th img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+}
+.EvaStudent table .table-data-row th{
+    height: 60px !important;
+    background-color: white !important;
+    color: #969698;
+}
+.EvaStudent table .table-data-row th img{
+    margin-left: 4%;
+}

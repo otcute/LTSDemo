@@ -1,5 +1,5 @@
 import './Sidebar.scss';
-import logo from '../../../../assets/logo.png';
+import logo from '../../../assets/logo.png';
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse, faUser, faUserGroup, faBars, faCalendarCheck } from '@fortawesome/free-solid-svg-icons';
