@@ -4,11 +4,11 @@ import StudentDetail from '../component/StudentDetail/StudentDetail';
 
 const Routes = [
     {
-        path: '/hocvien',
+        path: '/',
         element: <EvaluteStudent />,
     },
     {
-        path: '/hocvien/hocsinhchitiet/:id',
+        path: '/hocvien/:id',
         element: <StudentDetail />,
     },
 

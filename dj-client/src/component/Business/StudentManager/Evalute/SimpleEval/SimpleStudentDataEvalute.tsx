@@ -1,12 +1,14 @@
 import { SimpleStudentEvalute } from '../../../../../entities/BusinessDTO/StudentManager/StudentEvalute/SimpleStudentEvalute';
-
+import { Link } from 'react-router-dom';
 function SimpleStudentDataEvalute(studentData: SimpleStudentEvalute) {
     return (
         <>
             <tr className="table-data-row">
                 <th id="table-name">
                     <img src={studentData.studentAvatar} alt=""></img>
-                    <span>{studentData.studentName}</span>
+                    <Link to="hocvien/1">
+                        <span>{studentData.studentName}</span>
+                    </Link>
                 </th>
                 <th id="table-contact">
                     <span>{studentData.studentSdt}</span>
