@@ -1,29 +1,19 @@
 import Header from './component/layout/Header/Header';
 import SideBar from './component/layout/Sidebar/SideBar';
 import EvaluteStudent from './component/Business/StudentManager/Evalute/EvaluteStudent';
-// import StudentDetail from './component/StudentDetail/StudentDetail';
+import { useRoutes } from 'react-router-dom';
+import StudentDetail from './component/StudentDetail/StudentDetail';
 import './App.css';
+import Routes from './route/Router';
 function App() {
-    // const routes = [
-    //     { path: '/', element: <App /> },
-    //     {
-    //         path: '/evalutestudent',
-    //         element: <EvaluteStudent />,
-    //         children: [{ path: '/studentdetail', element: <StudentDetail /> }],
-    //     },
-    // ];
-    // const element = useRoutes(routes);
+    const element = useRoutes(Routes);
     return (
         <>
             <div className="wrapper">
                 <SideBar />
                 <div className="main">
                     <Header />
-                    <div className="content">
-                        <EvaluteStudent />
-                        {/* <StudentDetail /> */}
-                        {/* {element} */}
-                    </div>
+                    <div className="content">{element}</div>
                 </div>
             </div>
         </>
