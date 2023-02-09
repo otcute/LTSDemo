@@ -162,9 +162,7 @@ function EvaluteStudent() {
                 <thead>
                     <tr style={{ backgroundColor: '#ccc' }}>
                         <th id="table-name">
-                            <Link to="/evalutestudent/1">
-                                <span>Tên</span>
-                            </Link>
+                            <span>Tên</span>
                         </th>
                         <th id="table-contact">
                             <span>SDT liên hệ</span>
