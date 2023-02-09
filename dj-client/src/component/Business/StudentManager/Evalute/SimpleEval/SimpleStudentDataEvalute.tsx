@@ -1,13 +1,11 @@
 import { SimpleStudentEvalute } from '../../../../../entities/BusinessDTO/StudentManager/StudentEvalute/SimpleStudentEvalute';
 
 function SimpleStudentDataEvalute(studentData: SimpleStudentEvalute) {
-    console.log(studentData);
     return (
-      //  'data:image/jpeg;base64,'
         <>
-            <tr className='table-data-row'>
+            <tr className="table-data-row">
                 <th id="table-name">
-                    <img src={studentData.studentAvatar}></img>
+                    <img src={studentData.studentAvatar} alt=""></img>
                     <span>{studentData.studentName}</span>
                 </th>
                 <th id="table-contact">

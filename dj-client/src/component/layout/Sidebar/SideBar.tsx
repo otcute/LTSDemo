@@ -3,12 +3,12 @@ import logo from '../../../assets/logo.png';
 import { Sidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHouse, faUser, faUserGroup, faBars, faCalendarCheck } from '@fortawesome/free-solid-svg-icons';
-
+// import { NavLink } from 'react-router-dom';
 function SideBar() {
     return (
         <Sidebar rootStyles={{ width: '290px', height: '100vh', color: '#4B5563' }}>
             <a className="sidebar_logo" href="/">
-                <img src={logo} alt="" />
+                <img src={logo} alt="img" />
                 <div className="sidebar_title">
                     <p className="brand_name">Lotus Academy</p>
                 </div>

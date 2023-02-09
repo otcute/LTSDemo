@@ -5,13 +5,15 @@ import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import GlobalStyles from './component/GlobalStyles/GlobalStyles';
 import { ProSidebarProvider } from 'react-pro-sidebar';
-
+import { BrowserRouter } from 'react-router-dom';
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
     <React.StrictMode>
         <GlobalStyles>
             <ProSidebarProvider>
-                <App />
+                <BrowserRouter>
+                    <App />
+                </BrowserRouter>
             </ProSidebarProvider>
         </GlobalStyles>
     </React.StrictMode>,

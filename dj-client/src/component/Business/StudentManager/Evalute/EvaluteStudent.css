@@ -1,16 +1,16 @@
 .EvaStudent .table-title {
-    height: 36px;
+    height: 32px;
     margin-bottom: 16px;
     font-size: 24px;
 }
 
 .EvaStudent th {
     height: 44px;
-    background-color: #F9FAFB !important;
+    background-color: #f9fafb !important;
     color: rgb(80, 79, 79);
     font-size: 13px;
     font-weight: 400;
-    letter-spacing: .05em;
+    letter-spacing: 0.05em;
     line-height: 1rem;
     padding: 0.75rem 1.5rem;
     text-align: left;
@@ -18,15 +18,17 @@
     display: flex;
     align-items: center;
 }
-.EvaStudent table{
+.EvaStudent table {
     width: 100%;
 }
-.EvaStudent table #table-name,.EvaStudent table #table-contact{
+.EvaStudent table #table-name,
+.EvaStudent table #table-contact {
     width: 25%;
     float: left;
 }
-.EvaStudent table #table-course, .EvaStudent table #table-turtol,
-.EvaStudent table #table-active{
+.EvaStudent table #table-course,
+.EvaStudent table #table-turtol,
+.EvaStudent table #table-active {
     width: 16.666666%;
     float: left;
 }
@@ -39,11 +41,34 @@
     height: 36px;
     border-radius: 50%;
 }
-.EvaStudent table .table-data-row th{
+.EvaStudent table .table-data-row th {
     height: 60px !important;
     background-color: white !important;
     color: #969698;
 }
-.EvaStudent table .table-data-row th img{
+.EvaStudent table .table-data-row th img {
     margin-left: 4%;
+}
+.EvaStudent .statistical {
+    height: 95px;
+    display: flex;
+    margin-bottom: 24px;
+}
+.EvaStudent .statistical .statistical_item {
+    width: calc(100% / 3);
+    /* background-color: red; */
+    border-radius: 10px;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+.EvaStudent .statistical_item:not(:last-child) {
+    margin-right: 20px;
+}
+.dropdown-toggle {
+    width: 132px !important;
+    height: 36px !important;
+    margin-left: 20px !important;
+    border-radius: 10px !important;
+    font-size: 16px;
+    border-color: #ccc;
 }
