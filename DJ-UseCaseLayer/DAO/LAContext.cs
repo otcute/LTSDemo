@@ -45,6 +45,7 @@ namespace DJ_UseCaseLayer.DAO
         public DbSet<Intern> interns { get; set; }
         public DbSet<InternTask> internTasks { get; set; }
         public DbSet<StudentLAIntern> studentLAInterns { get; set; }
+        public DbSet<StudentEmployee> studentEmployees { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
            //optionsBuilder.UseSqlServer(Setting.connectServerUrl());

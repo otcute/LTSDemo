@@ -1,21 +1,34 @@
 import Table from 'react-bootstrap/Table';
 import './EvaluteStudent.css';
 import SimpleStudentDataEvalute from './SimpleEval/SimpleStudentDataEvalute';
-import { SimpleStudentEvalute } from '../../../../entities/BusinessDTO/StudentManager/StudentEvalute/SimpleStudentEvalute';
+import { mapData, SimpleStudentEvalute } from '../../../../entities/BusinessDTO/StudentManager/StudentEvalute/SimpleStudentEvalute';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUsers, faArrowUp, faSearch } from '@fortawesome/free-solid-svg-icons';
 import Dropdown from 'react-bootstrap/Dropdown';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import studentStatisticalApi from '../../../../api/BusinessApi/StudentManagerAPIs/StudentStatisticalApi';
 function EvaluteStudent() {
-    let data: SimpleStudentEvalute = {
-        studentAvatar: 'https://img.meta.com.vn/Data/image/2021/09/22/anh-meo-cute-de-thuong-dang-yeu-41.jpg',
-        studentName: 'abc',
-        studentSdt: '0987123123',
-        studentCourse: 'java',
-        studentTurtor: 'QA',
-        studentActive: true,
-    };
+    const [studentPaging10, setStudentPaging10] = useState([
+        {
+            studentAvatar: 'https://img.meta.com.vn/Data/image/2021/09/22/anh-meo-cute-de-thuong-dang-yeu-41.jpg',
+            studentName: 'Đỗ Quang Anh',
+            studentSdt: '0987123123',
+            studentCourse: 'java',
+            studentTurtor: 'Chị Giang',
+            studentActive: true,
+        },
+    ]);
+    
+    useEffect(()=>{
+        const callApi = async () => {
+            const data = await studentStatisticalApi.getListStudentByPaging(1)
+            console.log(data)
+            setStudentPaging10(mapData(data.data))
+        }
+        callApi()
+    },[])
     return (
         <div className="EvaStudent" style={{ padding: '24px 32px' }}>
             <div className="table-title">
@@ -168,12 +181,9 @@ function EvaluteStudent() {
                     </tr>
                 </thead>
                 <tbody>
-                    <SimpleStudentDataEvalute {...data} />
-                    <SimpleStudentDataEvalute {...data} />
-                    <SimpleStudentDataEvalute {...data} />
-                    <SimpleStudentDataEvalute {...data} />
-                    <SimpleStudentDataEvalute {...data} />
-                    <SimpleStudentDataEvalute {...data} />
+                    {studentPaging10.map((element: SimpleStudentEvalute) => {
+                        return <SimpleStudentDataEvalute {...element} />;
+                    })}
                 </tbody>
             </Table>
         </div>

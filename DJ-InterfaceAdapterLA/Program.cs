@@ -1,4 +1,6 @@
 
+using System.Text.Json.Serialization;
+
 namespace DJ_InterfaceAdapterLA
 {
     public class Program
@@ -24,7 +26,11 @@ namespace DJ_InterfaceAdapterLA
                 });
             });
 
-
+            builder.Services.AddControllers().AddJsonOptions(options =>
+            {
+                options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+                options.JsonSerializerOptions.WriteIndented = true;
+            });
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

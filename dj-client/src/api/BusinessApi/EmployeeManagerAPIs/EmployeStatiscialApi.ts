@@ -1,4 +1,4 @@
-import axiosClient from '../AxiosApi';
+import axiosClient from '../../AxiosApi';
 
 const studentManagerApi: any = {
     login: (param: any) => {

@@ -5,7 +5,9 @@ using DJ_WebDesignCore.Entites.Student;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DJ_InterfaceAdapterLA.APIs.StudentManagerAPIs
+
 {
+    [Route("api/hocvien/")]
     public class StudentCRUDController : BaseAPI
     {
      private readonly IStudentCRUD _studentCRUD;
