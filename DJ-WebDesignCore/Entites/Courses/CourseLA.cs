@@ -9,7 +9,7 @@ namespace DJ_WebDesignCore.Entites.Courses
 		public double? CourseLAPrice { get; set; }
 		public int? CourseStatusId { get;set; }
 		public CourseStatus? CourseStatus { get; set;}
-		
-	}
+        public int? SupportMonth { get; set; }
+    }
 }
 
