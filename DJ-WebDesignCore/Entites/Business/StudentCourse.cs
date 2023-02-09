@@ -13,6 +13,7 @@ namespace DJ_WebDesignCore.Entites.Business
         public CourseLA? CourseLA { get; set; }
         public DateTime? OpenCourse { get; set; }
         public DateTime? CloseCourse { get; set; }
+        public int? SupportMonth { get; set; }
     }
 }
 
