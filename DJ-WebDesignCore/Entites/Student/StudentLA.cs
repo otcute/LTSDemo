@@ -24,7 +24,7 @@ namespace DJ_WebDesignCore.Entites.Student
         public Province? Province { get; set; }
         public DateTime? StudentLABirthDay { get; set; }
         public int? SaleId { get; set; }
-        public virtual EmployeeLA? Sale { get; set; }
+        public EmployeeLA? Sale { get; set; }
         public int? GenderId { get; set; }
         public Gender? Gender { get; set; }
         public string? InsightName { get; set; }
@@ -34,7 +34,8 @@ namespace DJ_WebDesignCore.Entites.Student
         public float? HolidayTotal { get; set; }
         public float? ReserveTotal { get; set; }
         public float? UnauthorizedAbsencesTotal { get; set; }
-
+        public int? LateMinuteTotal { get; set; }
+        public int? UnactiveTotal { get; set; }
         public IEnumerable<StudentCourse> studentCourses { get; set; }
     }
 }

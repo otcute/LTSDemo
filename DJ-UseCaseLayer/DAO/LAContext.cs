@@ -30,6 +30,7 @@ namespace DJ_UseCaseLayer.DAO
         public DbSet<AttendanceTypeStatus> attendanceTypeStatuses { get; set; }
         public DbSet<CourseLessonStatus> courseLessonStatuses { get; set; }
         public DbSet<InternStatus> internStatuses { get; set; }
+        public DbSet<HolidayStatus> holidayStatuses { get; set; }
         // Student
         public DbSet<StudentLA> studentLAs { get; set; }
     
@@ -46,6 +47,8 @@ namespace DJ_UseCaseLayer.DAO
         public DbSet<InternTask> internTasks { get; set; }
         public DbSet<StudentLAIntern> studentLAInterns { get; set; }
         public DbSet<StudentEmployee> studentEmployees { get; set; }
+        public DbSet<StudentLAHoliday> studentLAHolidays { get; set; }
+        public DbSet<EmployeeLAHoliday> employeeLAHolidays { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
            //optionsBuilder.UseSqlServer(Setting.connectServerUrl());

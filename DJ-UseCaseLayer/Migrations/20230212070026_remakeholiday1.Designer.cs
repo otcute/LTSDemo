@@ -4,6 +4,7 @@ using DJ_UseCaseLayer.DAO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DJUseCaseLayer.Migrations
 {
     [DbContext(typeof(LAContext))]
-    partial class LAContextModelSnapshot : ModelSnapshot
+    [Migration("20230212070026_remakeholiday1")]
+    partial class remakeholiday1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,9 +33,6 @@ namespace DJUseCaseLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime?>("ActiveRealTime")
-                        .HasColumnType("datetime2");
-
                     b.Property<int?>("AttendanceTypeStatusId")
                         .HasColumnType("int");
 
@@ -42,16 +42,10 @@ namespace DJUseCaseLayer.Migrations
                     b.Property<int?>("EmployeeComfirmId")
                         .HasColumnType("int");
 
-                    b.Property<bool?>("IsLate")
-                        .HasColumnType("bit");
-
-                    b.Property<int?>("LateMinuteTotal")
-                        .HasColumnType("int");
-
                     b.Property<int?>("StudentLAId")
                         .HasColumnType("int");
 
-                    b.Property<string>("UnactiveReason")
+                    b.Property<string>("UnauthorizedAbsencesName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -884,9 +878,6 @@ namespace DJUseCaseLayer.Migrations
 
                     b.Property<string>("InsightName")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("LateMinuteTotal")
-                        .HasColumnType("int");
 
                     b.Property<string>("ProvinceCode")
                         .HasColumnType("nvarchar(450)");

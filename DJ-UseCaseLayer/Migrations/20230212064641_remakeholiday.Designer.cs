@@ -4,6 +4,7 @@ using DJ_UseCaseLayer.DAO;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DJUseCaseLayer.Migrations
 {
     [DbContext(typeof(LAContext))]
-    partial class LAContextModelSnapshot : ModelSnapshot
+    [Migration("20230212064641_remakeholiday")]
+    partial class remakeholiday
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,9 +33,6 @@ namespace DJUseCaseLayer.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime?>("ActiveRealTime")
-                        .HasColumnType("datetime2");
-
                     b.Property<int?>("AttendanceTypeStatusId")
                         .HasColumnType("int");
 
@@ -42,16 +42,10 @@ namespace DJUseCaseLayer.Migrations
                     b.Property<int?>("EmployeeComfirmId")
                         .HasColumnType("int");
 
-                    b.Property<bool?>("IsLate")
-                        .HasColumnType("bit");
-
-                    b.Property<int?>("LateMinuteTotal")
-                        .HasColumnType("int");
-
                     b.Property<int?>("StudentLAId")
                         .HasColumnType("int");
 
-                    b.Property<string>("UnactiveReason")
+                    b.Property<string>("UnauthorizedAbsencesName")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -65,35 +59,6 @@ namespace DJUseCaseLayer.Migrations
                     b.ToTable("attendance");
                 });
 
-            modelBuilder.Entity("DJ_WebDesignCore.Entites.Business.EmployeeLAHoliday", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("EmployeeLAId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("HolidayId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("IsSalary")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("TotalDay")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EmployeeLAId");
-
-                    b.HasIndex("HolidayId");
-
-                    b.ToTable("employeeLAHolidays");
-                });
-
             modelBuilder.Entity("DJ_WebDesignCore.Entites.Business.Holiday", b =>
                 {
                     b.Property<int>("Id")
@@ -101,12 +66,6 @@ namespace DJUseCaseLayer.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("CloseDay")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("CloseMonth")
-                        .HasColumnType("int");
 
                     b.Property<DateTime?>("CreateDateTime")
                         .HasColumnType("datetime2");
@@ -121,12 +80,6 @@ namespace DJUseCaseLayer.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("HolidayStatusId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("OpenDay")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("OpenMonth")
                         .HasColumnType("int");
 
                     b.Property<int?>("TotalDay")
@@ -350,32 +303,6 @@ namespace DJUseCaseLayer.Migrations
                     b.HasIndex("StudentLAId");
 
                     b.ToTable("studentLACourseLessons");
-                });
-
-            modelBuilder.Entity("DJ_WebDesignCore.Entites.Business.StudentLAHoliday", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("HolidayId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("StudentLAId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("TotalDay")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("HolidayId");
-
-                    b.HasIndex("StudentLAId");
-
-                    b.ToTable("studentLAHolidays");
                 });
 
             modelBuilder.Entity("DJ_WebDesignCore.Entites.Business.StudentLAIntern", b =>
@@ -885,9 +812,6 @@ namespace DJUseCaseLayer.Migrations
                     b.Property<string>("InsightName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("LateMinuteTotal")
-                        .HasColumnType("int");
-
                     b.Property<string>("ProvinceCode")
                         .HasColumnType("nvarchar(450)");
 
@@ -957,21 +881,6 @@ namespace DJUseCaseLayer.Migrations
                     b.Navigation("EmployeeComfirm");
 
                     b.Navigation("StudentLA");
-                });
-
-            modelBuilder.Entity("DJ_WebDesignCore.Entites.Business.EmployeeLAHoliday", b =>
-                {
-                    b.HasOne("DJ_WebDesignCore.Entites.Employee.EmployeeLA", "EmployeeLA")
-                        .WithMany()
-                        .HasForeignKey("EmployeeLAId");
-
-                    b.HasOne("DJ_WebDesignCore.Entites.Business.Holiday", "Holiday")
-                        .WithMany()
-                        .HasForeignKey("HolidayId");
-
-                    b.Navigation("EmployeeLA");
-
-                    b.Navigation("Holiday");
                 });
 
             modelBuilder.Entity("DJ_WebDesignCore.Entites.Business.Holiday", b =>
@@ -1087,21 +996,6 @@ namespace DJUseCaseLayer.Migrations
                     b.Navigation("CourseLesson");
 
                     b.Navigation("EmployeeLAComfirm");
-
-                    b.Navigation("StudentLA");
-                });
-
-            modelBuilder.Entity("DJ_WebDesignCore.Entites.Business.StudentLAHoliday", b =>
-                {
-                    b.HasOne("DJ_WebDesignCore.Entites.Business.Holiday", "Holiday")
-                        .WithMany()
-                        .HasForeignKey("HolidayId");
-
-                    b.HasOne("DJ_WebDesignCore.Entites.Student.StudentLA", "StudentLA")
-                        .WithMany()
-                        .HasForeignKey("StudentLAId");
-
-                    b.Navigation("Holiday");
 
                     b.Navigation("StudentLA");
                 });

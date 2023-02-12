@@ -17,6 +17,7 @@ namespace DJ_WebDesignCore.Enums.AttendanceManagerEnums
         SHIFT1_2_3=7,
         UNACTIVE=8,
         HOLIDAY=9,
-        RESERVE=10
+        RESERVE=10,
+        UNACTIVE_REASON =11
     }
 }
