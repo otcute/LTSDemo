@@ -36,6 +36,6 @@ namespace DJ_WebDesignCore.Entites.Student
         public float? UnauthorizedAbsencesTotal { get; set; }
         public int? LateMinuteTotal { get; set; }
         public int? UnactiveTotal { get; set; }
-        public IEnumerable<StudentCourse> studentCourses { get; set; }
+        public IEnumerable<StudentCourse>? studentCourses { get; set; }
     }
 }

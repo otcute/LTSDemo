@@ -1,6 +1,6 @@
-﻿namespace DJ_WebDesignCore.Enums.EmployeeManagerEnums
+﻿namespace DJ_WebDesignCore.Enums.CourseManagerEnums
 {
-    public enum EmployeeCreateEnums
+    public enum StudentLACourseLessonsCreateEnums
     {
         SUCCESSFULLY = 1,
         USERNAMEDUPLICATED = 2,
@@ -8,6 +8,7 @@
         NOTFOUND = 4,
         NULLID = 5,
         NOT_VALUE = 6,
-        LENGTH_TOO_SHORT = 7
+        LENGTH_TOO_SHORT = 7,
+        FAILED = 8
     }
 }

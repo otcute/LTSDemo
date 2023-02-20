@@ -5,26 +5,34 @@ using DJ_WebDesignCore.Entites.Student;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DJ_InterfaceAdapterLA.APIs.StudentManagerAPIs
-
 {
-    [Route("api/hocvien/")]
     public class StudentCRUDController : BaseAPI
     {
-     private readonly IStudentCRUD _studentCRUD;
+        private readonly IStudentCRUD _studentCRUD;
 
         public StudentCRUDController()
         {
             _studentCRUD = new StudentCRUD();
         }
-        [HttpPost("themmoi")]
+        [HttpPost("StudentCRUD")]
         public ActionResult<StudentCreateDTO> createEmployee([FromBody] StudentLA newData)
         {
             return Ok(_studentCRUD.createStudent(newData));
         }
-        [HttpGet("timtheoid")]
+        [HttpGet("StudentCRUD/{studentId}")]
         public ActionResult<StudentFindByIdDTO> findStudentById(int? studentId)
         {
-           return Ok(_studentCRUD.findStudentById(studentId));
+            return Ok(_studentCRUD.findStudentById(studentId));
+        }
+        [HttpDelete("StudentCRUD/{studentId}")]
+        public ActionResult<StudentDeleteDTO> deleteStudent(int? studentId)
+        {
+            return Ok(_studentCRUD.deleteStudent(studentId));
+        }
+        [HttpPut("StudentCRUD")]
+        public ActionResult<StudentUpdateDTO> updateStudent([FromBody] StudentLA studentLA)
+        {
+            return Ok(_studentCRUD.updateStudent(studentLA));
         }
     }
 }
