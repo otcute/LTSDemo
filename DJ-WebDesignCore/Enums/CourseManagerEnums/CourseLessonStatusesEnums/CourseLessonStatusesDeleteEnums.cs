@@ -1,6 +1,6 @@
-﻿namespace DJ_WebDesignCore.Enums.CourseManagerEnums.StudentLACourseLessonsEnums
+﻿namespace DJ_WebDesignCore.Enums.CourseManagerEnums.CourseLessonStatusesEnums
 {
-    public enum StudentLACourseLessonsDeleteEnums
+    public enum CourseLessonStatusesDeleteEnums
     {
         SUCCESSFULLY = 1,
         USERNAMEDUPLICATED = 2,
