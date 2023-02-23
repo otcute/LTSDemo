@@ -1,23 +1,13 @@
-import Header from './component/layout/Header/Header';
-import SideBar from './component/layout/Sidebar/SideBar';
-import EvaluteStudent from './component/Business/StudentManager/Evalute/EvaluteStudent';
-import { useRoutes } from 'react-router-dom';
-import StudentDetail from './component/StudentDetail/StudentDetail';
-import './App.css';
-import Routes from './route/Router';
+import LotusLayout from './Layout/LotusLayout';
+import EmployeeLogin from './components/Login/EmployeeLogin';
+import { useState } from 'react';
 function App() {
-    const element = useRoutes(Routes);
-    return (
-        <>
-            <div className="wrapper">
-                <SideBar />
-                <div className="main">
-                    <Header />
-                    <div className="content">{element}</div>
-                </div>
-            </div>
-        </>
-    );
+    const [isLogin, setIsLogin] = useState(false);
+
+    const checkLogin = (data: any) => {
+        setIsLogin(data);
+    };
+    return isLogin ? <LotusLayout checkLogin={checkLogin} /> : <EmployeeLogin checkLogin={checkLogin} />;
 }
 
 export default App;

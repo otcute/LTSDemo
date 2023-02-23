@@ -1,0 +1,62 @@
+.EvaStudent table {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.EvaStudent table thead th{
+    float: left;
+    width: 25%;
+}
+/* 
+.EvaStudent table #table-course,
+.EvaStudent table #table-turtol,
+.EvaStudent table #table-active {
+    width: 16.666666%;
+    float: left;
+} */
+
+.EvaStudent table tbody tr a {
+    text-decoration: none;
+}
+
+.EvaStudent table tbody tr a img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: inline;
+}
+
+.EvaStudent table tbody tr a span {
+   margin-left: 12px;
+   color: black;
+}
+
+
+.EvaStudent .statistical {
+    /* height: 95px; */
+    display: flex;
+    margin-bottom: 24px;
+}
+
+.EvaStudent .statistical .statistical_item {
+    /* width: calc(100% / 3); */
+    /* background-color: red; */
+    border-radius: 10px;
+    /* padding: 20px; */
+    /* padding-top: 20px;
+    padding-bottom: 20px; */
+    /* border: 1px solid #ccc; */
+}
+
+/* .EvaStudent .statistical_item:not(:last-child) {
+    margin-right: 20px;
+} */
+
+.dropdown-toggle {
+    width: 132px !important;
+    height: 36px !important;
+    margin-left: 20px !important;
+    border-radius: 10px !important;
+    font-size: 16px;
+    border-color: #ccc;
+}
